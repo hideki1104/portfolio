@@ -1,0 +1,26 @@
+<h1>動画投稿ページ</h1>
+<%= form_for (@training) do |f| %>
+<table>
+	<tr>
+		<th>タイトル</th>
+		<td><%= f.text_field :training_name, autofocus: true, autocomplete: "training_name" %></td>
+	</tr>
+  <tr>
+    <th>youtube url</th>
+    <td><%= f.text_field :youtube_url,autofocus: true, autocomplete: "youtube_url" %></td>
+  </tr>
+    <tr>
+      <th>説明</th>
+      <td><%= f.text_area :description, autofocus: true, autocomplete: "description" %></td>
+    </tr>
+
+    <tr>
+      <th>おすすめ回数</th>
+      <td><%= f.text_field :number_time, autofocus: true, autocomplete: "number_time" %>回</td>
+    </tr>
+
+    <tr><td><%= f.submit '投稿する' %></td></tr>
+
+  </table>
+  <%= link_to "ジャンル管理へ",genres_path %>
+<% end %>

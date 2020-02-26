@@ -1,0 +1,10 @@
+<h1>ジャンル編集画面</h1>
+
+<%= form_for(@genre) do |f| %>
+    <%= f.text_field :genre_name, autofocus: true, autocomplete: "genre_name" %>
+	<%= f.label :有効  %>
+	<%= f.radio_button :class_status, :有効 %>
+	<%= f.label :無効  %>
+	<%= f.radio_button :class_status, :無効 %>
+	<%= f.submit "変更する" %>
+<% end %>

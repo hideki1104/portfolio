@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_082444) do
+ActiveRecord::Schema.define(version: 2020_02_26_082620) do
+
+  create_table "genres", force: :cascade do |t|
+    t.string "genre_name"
+    t.integer "class_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.integer "genre_id"
+    t.string "training_name"
+    t.string "youtube_url"
+    t.text "description"
+    t.integer "number_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,9 +41,9 @@ ActiveRecord::Schema.define(version: 2020_02_25_082444) do
     t.float "height"
     t.float "registar_weight"
     t.integer "age"
-    t.string "profile_image"
     t.text "introduction"
     t.integer "sex"
+    t.string "profile_image_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

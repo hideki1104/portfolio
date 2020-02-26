@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   enum sex:{男: 0, 女: 1}
+  attachment :profile_image
 end
