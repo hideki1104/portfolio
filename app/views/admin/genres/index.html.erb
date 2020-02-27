@@ -1,6 +1,6 @@
 <h1>ジャンル管理</h1>
 
-<%= form_for (@genre) do |f| %>
+<%= form_for(@genre,url:admin_genres_path) do |f| %>
 	<%= f.text_field :genre_name, autofocus: true, autocomplete: "genre_name" %>
 	<%= f.label :有効  %>
 	<%= f.radio_button :class_status, :有効 %>
@@ -11,7 +11,21 @@
 
 
 <% @genres.each do |genre| %>
-	<%= genre.genre_name %>
-	<%= genre.class_status %>
-	<%= link_to "編集する" ,edit_genre_path(genre.id) %>
+    <table>
+    	<tr>
+    		<td>
+				<%= genre.genre_name %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			    <%= genre.class_status %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= link_to "編集する" ,edit_admin_genre_path(genre.id) %>
+			</td>
+		</tr>
+	</table>
 <% end %>

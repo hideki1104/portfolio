@@ -1,0 +1,25 @@
+<h1>トレーニング詳細</h1>
+
+
+    <%= form_for(@conduct_training,url: user_conduct_trainings_path) do |f| %>
+        <table>
+            <tr>
+        	  	<th>タイトル</th>
+        	  	<td><%= @training.training_name %></td>
+            </tr>
+
+            <tr>
+            	<td><iframe width="800" height="450" src="https://www.youtube.com/embed/<%= @training.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+
+            	<th>説明</th>
+            	<td><%= @training.description %></td>
+
+            	<th>おすすめ回数</th>
+            	<td><%= @training.number_time %>回</td>
+                <th>セット数</th>
+                <td><%= f.hidden_field :training_id, :value => @training.id %>
+                <%= f.select :set_count, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %></td>
+                    <td><%= f.submit "登録" %></td>
+            </tr>
+        </table>
+    <% end %>

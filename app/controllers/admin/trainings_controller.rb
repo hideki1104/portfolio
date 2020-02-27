@@ -1,6 +1,7 @@
-class TrainingsController < ApplicationController
+class Admin::TrainingsController < ApplicationController
+
   def new
-  	@training = Training.new
+ 	@training = Training.new
   end
 
   def create
@@ -9,16 +10,12 @@ class TrainingsController < ApplicationController
   	url = url.last(11)
   	@training.youtube_url = url
   	@training.save
-  	redirect_to trainings_path
+  	redirect_to admin_trainings_path
   end
 
   def index
-  	@trainings = Training.all
+    @trainings = Training.all
     @genres = Genre.all
-  end
-
-  def show
-  	@training = Training.find(params[:id])
   end
 
   def edit
@@ -34,7 +31,7 @@ class TrainingsController < ApplicationController
   def destroy
   	training = Training.find(params[:id])
   	training.delete
-  	redirect_to trainings_path
+  	redirect_to admin_trainings_path
   end
 
   private

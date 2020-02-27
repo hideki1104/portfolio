@@ -1,0 +1,27 @@
+<h1>トレーニング一覧</h1>
+
+<h2>ジャンル検索</h2>
+<% @genres.each do |genre| %>
+    <table>
+      <tr>
+        <td><%= genre.genre_name %></td>
+      </tr>
+    </table>
+<% end %>
+
+
+<% @trainings.each do |training| %>
+  <table>
+  	<tr>
+	  	<th>タイトル</th>
+	  	<td><%= training.training_name %></td>
+    </tr>
+    <tr>
+    	<td><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= training.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+    </tr>
+
+    <tr>
+      <td><%= link_to "編集へ" ,edit_admin_training_path(training.id) %></td>
+    </tr>
+  </table>
+<% end %>

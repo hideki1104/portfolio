@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   get 'genres/index'
   get 'genres/edit'
   devise_for :users
@@ -6,6 +7,14 @@ Rails.application.routes.draw do
   root "homes#top"
   get 'homes/about'
   resources :users,only:[:show,:edit,:update,:destroy]
-  resources :trainings
-  resources :genres,only:[:index,:edit,:create,:update]
+
+  namespace :user do
+	  resources :trainings,only:[:index,:show]
+    resources :conduct_trainings
+  end
+
+  namespace :admin do
+  	resources :trainings,only:[:index,:new,:create,:update,:edit,:destroy]
+	  resources :genres,only:[:index,:edit,:create,:update]
+  end
 end

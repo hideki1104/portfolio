@@ -4,7 +4,7 @@
 <% @genres.each do |genre| %>
     <table>
       <tr>
-        <td><%= genre.genre_name %></td>
+        <td><%= link_to genre.genre_name,user_trainings_path(genre_id: genre.id) %></td>
       </tr>
     </table>
 <% end %>
@@ -21,8 +21,7 @@
     </tr>
 
     <tr>
-    	<td><%= link_to "詳細へ" ,training_path(training.id) %></td>
-    	<td><%= link_to "編集する" ,edit_training_path(training.id) %></td>
+    	<td><%= link_to "詳細へ" ,user_training_path(training.id) %></td>
     </tr>
   </table>
 <% end %>

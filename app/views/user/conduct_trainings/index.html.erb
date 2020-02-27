@@ -1,0 +1,17 @@
+<h1>今日のトレーニング</h1>
+
+<% @conduct_trainings.each do |conduct| %>
+	<table>
+		<tr>
+			<td>
+				<%= conduct.training.training_name %>
+			</td>
+	        <td>
+	        	<%= conduct.training.number_time %>回
+	        </td>
+	        <td>
+				×<%= conduct.set_count %>セット
+			</td>
+		</tr>
+	</table>
+<% end %>

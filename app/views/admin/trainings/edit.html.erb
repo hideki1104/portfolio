@@ -1,5 +1,5 @@
 <h1>トレーニング編集画面</h1>
-<%= form_for (@training) do |f| %>
+<%= form_for(@training,url:admin_trainings_path) do |f| %>
 <table>
 	<tr>
 		<th>タイトル</th>
@@ -23,8 +23,7 @@
 
     <tr>
     	<td><%= f.submit '変更する' %></td>
-    	<td><%= link_to "消去する" ,training_path(@training.id),method: :delete %></td>
+    	<td><%= link_to "消去する" ,admin_training_path(@training.id),method: :delete %></td>
     </tr>
-
   </table>
 <% end %>
