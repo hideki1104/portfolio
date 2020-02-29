@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :user do
 	  resources :trainings,only:[:index,:show]
     resources :conduct_trainings
+    resources :weights,only:[:index,:new,:create,:update]
   end
 
   namespace :admin do

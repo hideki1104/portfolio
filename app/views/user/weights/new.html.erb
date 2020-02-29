@@ -1,0 +1,37 @@
+<h1>体重入力画面</h1>
+
+<%= form_for(@weight, url: user_weights_path, method: :post) do |f| %>
+<table>
+	<tr>
+		<th>身長</th>
+		<td><%= @user.height %>cm</td>
+	</tr>
+	<tr>
+		<th>現在の体重</th>
+		<td><%= f.text_field :weight, autofocus: true, autocomplete: "weight" %>kg</td>
+	</tr>
+
+    <tr><td><%= f.submit '計算する' %></td></tr>
+
+   <tr>
+   	   <th>BMI</th>
+	   <td><%= @bmi %></td>
+   </tr>
+
+    <tr>
+   	   <th>適正体重</th>
+	   <td><%= @proper_weight %>kg</td>
+   </tr>
+
+    <tr>
+   	   <th>適正体重より</th>
+	   <td><%= @difference %>kg</td>
+   </tr>
+
+    <tr>
+   	   <th>肥満度</th>
+	   <td><%= @degree %></td>
+   </tr>
+
+  </table>
+  <% end %>

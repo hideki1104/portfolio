@@ -12,6 +12,12 @@ class User::ConductTrainingsController < ApplicationController
     redirect_to user_conduct_trainings_path
   end
 
+  def destroy
+  	@conduct_training = ConductTraining.find(params[:id])
+  	@conduct_training.update(conduct_training_params)
+  	redirect_to user_conduct_trainings_path
+  end
+
   private
     def conduct_training_params
         params.require(:conduct_training).permit(:training_id,:user_id,:count_set)

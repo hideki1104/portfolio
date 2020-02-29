@@ -12,7 +12,7 @@
 
     <tr>
       <th>ジャンル</th>
-      <td><%= f.collection_select(:genre_id, Genre.all, :id, :genre_name) %></td>
+      <td><%= f.collection_select(:genre_id, Genre.where(class_status: '0'), :id, :genre_name) %></td>
     </tr>
     <tr>
       <th>説明</th>

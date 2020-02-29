@@ -14,8 +14,13 @@ class Admin::TrainingsController < ApplicationController
   end
 
   def index
-    @trainings = Training.all
-    @genres = Genre.all
+     @genres = Genre.where(class_status: '0')
+    if params[:genre_id]
+      @genre = Genre.find(params[:genre_id])
+      @trainings = @genre.trainings.all
+    else
+      @trainings = Training.all
+    end
   end
 
   def edit

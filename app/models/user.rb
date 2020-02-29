@@ -6,4 +6,5 @@ class User < ApplicationRecord
   enum sex:{男: 0, 女: 1}
   attachment :profile_image
   has_many :conduct_trainings, dependent: :destroy
+  has_many :weights, dependent: :destroy
 end
