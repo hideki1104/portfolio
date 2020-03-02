@@ -43,12 +43,18 @@ class User::WeightsController < ApplicationController
 
         else
           @weight.save
-          render :new
+          redirect_to user_weights_path
         end
   end
 
   def index
   	@weights = Weight.all
+  end
+
+  def destroy
+    @weight = Weight.find(params[:id])
+    @weight.destroy
+    redirect_to user_weights_path
   end
 
   private

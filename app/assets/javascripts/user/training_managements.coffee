@@ -3,7 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-  $('#calendar').fullCalendar {
+  $('#calendar').fullCalendar ({
   height:700,
-  }
+  titleFormat: 'YYYY年 M月',
+  dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+  })
   return

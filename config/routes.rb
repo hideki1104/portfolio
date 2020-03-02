@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 	  resources :trainings,only:[:index,:show]
     resources :conduct_trainings
     delete 'conduct_training' => 'conduct_trainings#destroy_all'
-    resources :weights,only:[:index,:new,:create,:update]
+    resources :weights,only:[:index,:new,:create,:update,:destroy]
     resources :training_managements,only:[:index,:show]
   end
 

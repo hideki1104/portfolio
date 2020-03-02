@@ -2,23 +2,27 @@
 
 <%= link_to "トレーニングを全て削除","/user/conduct_training",method: :delete %>
 
-<% @conduct_trainings.each do |conduct| %>
-	<table>
-		<tr>
-			<td>
-				<%= conduct.training.training_name %>
-			</td>
-	        <td>
-	        	<%= conduct.training.number_time %>回
-	        </td>
-	        <td>
-	        	<%= form_for conduct, url:user_conduct_training_path(conduct.id) do |f| %>
-				×<%= f.number_field :set_count %><%= f.submit "変更" %>
-			</td>
-				<% end %>
-			<td><%= link_to "削除" ,user_conduct_training_path(conduct.id),method: :delete %>
-			</td>
-		</tr>
-	</table>
+<%= form_for(@training_management,url: user_training_managements_path) do |f| %>
+
+	<% @conduct_trainings.each do |conduct| %>
+		<table>
+			<tr>
+				<td>
+					<%= conduct.training.training_name %>
+				</td>
+		        <td>
+		        	<%= conduct.training.number_time %>回
+		        </td>
+		        <td>
+		        	<%= form_for conduct, url:user_conduct_training_path(conduct.id) do |f| %>
+					×<%= f.number_field :set_count %><%= f.submit "変更" %>
+				</td>
+					<% end %>
+				<td><%= link_to "削除" ,user_conduct_training_path(conduct.id),method: :delete %>
+				</td>
+			</tr>
+		</table>
+	<% end %>
+	<%= f.submit "トレーニングを記録する" %>
 <% end %>
 <%= link_to "トレーニングに戻る", user_trainings_path %>

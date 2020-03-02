@@ -2,6 +2,7 @@ class User::ConductTrainingsController < ApplicationController
   def index
   	@conduct_trainings = current_user.conduct_trainings
   	@conduct_training  = ConductTraining.new
+    @training_management = TrainingManagement.new
   end
 
   def create
