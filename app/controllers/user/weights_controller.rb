@@ -9,13 +9,13 @@ class User::WeightsController < ApplicationController
   	@user = current_user
   	@weight = Weight.new(weight_params)
   	@weight.user_id = current_user.id
-  	  	# BMIの計算
+  	# BMIの計算
   		@a = (params[:weight][:weight].to_f)
-  		@bmi = (@a / ((@user.height * 0.01) * (@user.height * 0.01)))
+  		@bmi = (@a / ((@user.height * 0.01) * (@user.height * 0.01))).round(2)
   	# 適正体重の計算
-  	    @proper_weight = ((@user.height * 0.01) *2) * 22
+  	    @proper_weight = (((@user.height * 0.01) * (@user.height * 0.01)) * 22).round(2)
   	# 適正体重と現在の体重の差
-  	    @difference = (@a - @proper_weight)
+  	    @difference = (@a - @proper_weight).round(2)
   	# 肥満度
   	    if @bmi < 16
   	    	@degree = "痩せすぎ"
@@ -37,8 +37,14 @@ class User::WeightsController < ApplicationController
 
   	    @weight.bmi = @bmi
 
-  	    @weight.save
-	render :new
+    # ボタン押した時の条件分岐
+        if params[:calculation_button]
+          render :new
+
+        else
+          @weight.save
+          render :new
+        end
   end
 
   def index

@@ -65,3 +65,9 @@ gem 'devise'
 
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
+
+gem 'momentjs-rails'
+gem 'fullcalendar-rails'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
