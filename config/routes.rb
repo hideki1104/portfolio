@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   	resources :trainings,only:[:index,:new,:create,:update,:edit,:destroy]
 	  resources :genres,only:[:index,:edit,:create,:update]
   end
+
+  post 'follow/:id' => 'relationships#follow', as: 'follow'
+  post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
 end

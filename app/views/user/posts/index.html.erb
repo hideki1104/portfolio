@@ -17,7 +17,12 @@
 				<tr>
 					<td><%= @user.introduction %></td>
 				</tr>
+				<tr>
+					<td><%= "フォロー数: #{@user.follower.count}" %><%= "フォロワー数: #{@user.followed.count}" %>
+					</td>
+				</tr>
 			</table>
+
 
             <h2>新規投稿</h2>
             <%= form_for(@post,url:user_posts_path) do |f| %>
