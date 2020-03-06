@@ -1,31 +1,54 @@
 <h1>マイページ</h1>
-<table>
-	<tr>
-		<td><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg',fallback: "no_image.jpg" %></td>
-	</tr>
-	<tr>
-		<th>名前</th>
-		<td><%= @user.name %></td>
-	</tr>
-	<tr>
-		<th>性別</th>
-		<td><%= @user.sex %></td>
-	</tr>
-	<tr>
-		<th>年齢</th>
-		<td><%= @user.age %>才</td>
-	</tr>
-	<tr>
-		<th>身長</th>
-		<td><%= @user.height %>cm</td>
-	</tr>
-	<tr>
-		<th>体重</th>
-		<td><%= @user.registar_weight %>kg</td>
-	</tr>
-</table>
-<%= link_to "編集する" ,edit_user_path(@user.id) %>
-<%= link_to "トレーニングする" ,user_trainings_path %>
-<%= link_to "トレーニング記録", user_training_managements_path %>
-<%= link_to "体重管理",user_weights_path %>
-<%= link_to "コミュニティ" %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-4">
+			<table>
+				<tr>
+					<td><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
+				</tr>
+				<tr>
+					<th>名前</th>
+					<td><%= @user.name %></td>
+				</tr>
+				<tr>
+					<th>性別</th>
+					<td><%= @user.sex %></td>
+				</tr>
+				<tr>
+					<th>年齢</th>
+					<td><%= @user.age %>才</td>
+				</tr>
+				<tr>
+					<th>身長</th>
+					<td><%= @user.height %>cm</td>
+				</tr>
+				<tr>
+					<th>体重</th>
+					<% if params[:weight] %>
+						<%= @weight.weight %>
+					<% else %>
+						<td><%= @user.registar_weight %>kg</td>
+					<% end %>
+				</tr>
+				<tr>
+					<td><%= link_to "" ,edit_user_path(@user.id),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_10783" %></td>
+				</tr>
+			</table>
+
+		   <ul>
+				<li>
+					<%= link_to "トレーニングする" ,user_trainings_path,class: "btn btn-primary btn-lg active" %>
+				</li>
+				<li>
+					<%= link_to "トレーニング記録", user_training_managements_path,class: "btn btn-primary btn-lg active" %>
+				</li>
+				<li>
+					<%= link_to "体重管理",user_weights_path,class: "btn btn-primary btn-lg active" %>
+				</li>
+			    <li>
+					<%= link_to "コミュニティ",user_posts_path,class: "btn btn-primary btn-lg active" %>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

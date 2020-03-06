@@ -1,8 +1,6 @@
-<h1>今日のトレーニング</h1>
+<h1>今日のトレーニング(<%= @today %>)</h1>
 
 <%= link_to "トレーニングを全て削除","/user/conduct_training",method: :delete %>
-
-<%= form_for(@training_management,url: user_training_managements_path) do |f| %>
 
 	<% @conduct_trainings.each do |conduct| %>
 		<table>
@@ -23,6 +21,7 @@
 			</tr>
 		</table>
 	<% end %>
-	<%= f.submit "トレーニングを記録する" %>
-<% end %>
+		<%= form_for(@training_management,url:user_training_managements_path, method: :post) do |f| %>
+		<%= f.submit "トレーニングを記録する" %>
+		<% end %>
 <%= link_to "トレーニングに戻る", user_trainings_path %>

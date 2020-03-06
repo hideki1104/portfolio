@@ -25,6 +25,10 @@
       <th>体重</th>
       <td><%= f.text_field :registar_weight, autofocus: true, autocomplete: "registar_weight" %>kg</td>
     </tr>
+    <tr>
+      <th>自己紹介</th>
+      <td><%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %></td>
+    </tr>
     <tr><td><%= f.submit '更新する' %></td></tr>
 
   </table>

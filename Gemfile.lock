@@ -272,6 +272,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  execjs
   fullcalendar-rails
   jbuilder (~> 2.5)
   jquery-rails

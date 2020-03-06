@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :user do
+    get 'post_comments/edit'
+  end
   devise_for :admins
   get 'genres/index'
   get 'genres/edit'
@@ -14,7 +17,11 @@ Rails.application.routes.draw do
     resources :conduct_trainings
     delete 'conduct_training' => 'conduct_trainings#destroy_all'
     resources :weights,only:[:index,:new,:create,:update,:destroy]
-    resources :training_managements,only:[:index,:show]
+    resources :training_managements,only:[:create,:index,:show]
+    resources :posts,only:[:create,:index,:show,:update,:edit,:destroy] do
+      resource :favorites,only:[:create,:destroy]
+      resources :post_comments,only:[:create,:edit,:update,:destroy]
+    end
   end
 
   namespace :admin do

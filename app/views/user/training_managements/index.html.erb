@@ -1,3 +1,23 @@
 <h1>トレーニング記録一覧画面</h1>
 
 <div id="calendar"></div>
+
+<table>
+	<tr>
+		<th>日時</th>
+		<th>トレーニング名</th>
+		<th>回数</th>
+		<th>セット数</th>
+	</tr>
+
+	<% current_user.training_managements.each do |management| %>
+	<% management.training_records.each do |record| %>
+	<tr>
+		<td><%= management.created_at %></td>
+		<td><%= record.training.training_name %></td>
+		<td><%= record.training.number_time %>回</td>
+		<td>×<%= record.set_count %>セット</td>
+	</tr>
+	<% end %>
+	<% end %>
+</table>
