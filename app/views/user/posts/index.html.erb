@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-6">
 			<h1>コミュニティ</h1>
-			<table>
+			<table class="table">
 				<tr>
 					<td><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
 					<td><%= link_to "" ,edit_user_path(@user.id),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_10783" %></td>
@@ -42,7 +42,7 @@
 
 			<% @posts.each do |post| %>
 			<%= link_to user_post_path(post.id) do %>
-			<table>
+			<table class="table">
 				<tr>
 					<td>
 						<%= attachment_image_tag post.user, :profile_image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
@@ -53,12 +53,14 @@
 					<td><%= post.impression %></td>
 				</tr>
 			<% end %>
+                <% if post.user == current_user %>
+					<tr>
+						<td><%= link_to edit_user_post_path(post.id) do %><i class="fas fa-edit"></i><% end %></td>
+						<td><%= link_to user_post_path(post.id),method: :delete do %><i class="fas fa-trash-alt"></i><% end %></td>
 
-				<tr>
-					<td><%= link_to "編集する",edit_user_post_path(post.id) %></td>
-					<td><%= link_to "削除する",user_post_path(post.id),method: :delete %></td>
-
-				</tr>
+					</tr>
+				<% else %>
+				<% end %>
 			</table>
 			<% end %>
 		</div>

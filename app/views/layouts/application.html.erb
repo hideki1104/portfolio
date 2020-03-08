@@ -11,23 +11,36 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-    <ul class="nav nav-pills">
-       <li role="presentation"><%= link_to "ログアウト",destroy_user_session_path,method: :delete %></li>
-       <li role="presentation"><%= link_to "マイページ",user_path(current_user.id) %></li>
-       <li role="presentation"><%= link_to "トレーニング履歴",user_training_managements_path %></li>
-       <li role="presentation"><%= link_to "コミュニティ",user_posts_path %></li>
-     </ul>
+    <header>
+      <nav>
+        <% if user_signed_in? %>
+        <ul class="nav navbar-nav navbar-right">
+           <li role="presentation"><%= link_to "ログアウト",destroy_user_session_path,method: :delete %></li>
+           <li role="presentation"><%= link_to "マイページ",user_path(current_user.id) %></li>
+           <li role="presentation"><%= link_to "トレーニング履歴",user_training_managements_path %></li>
+           <li role="presentation"><%= link_to "コミュニティ",user_posts_path %></li>
+         </ul>
+      </nav>
+    </header>
 
-    <% else %>
-    <ul class="nav nav-pills">
-      <li role="presentation"><%= link_to "ログイン",new_user_session_path %></li>
-      <li role="presentation"><%= link_to "新規登録", new_user_registration_path %></li>
-      <li role="presentation"><%= link_to "about",homes_about_path %></li>
-    </ul>
+    <header>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation"><%= link_to "ログイン",new_user_session_path %></li>
+          <li role="presentation"><%= link_to "新規登録", new_user_registration_path %></li>
+          <li role="presentation"><%= link_to "about",homes_about_path %></li>
+        </ul>
+      </nav>
+    </header>
 
-    <% end %>
+      <% end %>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+      <p>©︎</p>
+    </footer>
   </body>
 </html>

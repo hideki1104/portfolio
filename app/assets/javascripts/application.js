@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
 //= require moment
@@ -20,3 +19,16 @@
 //= require_tree .
 //= require chartkick
 //= require Chart.bundle
+//= require jquery.turbolinks
+
+$(function(){
+	$('#calendar').fullCalendar({
+		titleFormat: 'YYYY年 M月',
+		dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+		navLinks: true,
+		selecttable: true,
+		selectHelper: true,
+		events: '/user/training_managements.json',
+		editable: true
+	});
+});

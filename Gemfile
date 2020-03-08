@@ -76,3 +76,7 @@ gem 'chart-js-rails', '~> 0.1.4'
 gem "chartkick"
 
 gem 'execjs'
+
+gem 'pry-byebug'
+
+gem 'jquery-turbolinks'

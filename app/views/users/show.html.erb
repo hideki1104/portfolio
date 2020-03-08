@@ -1,8 +1,8 @@
-<h1>マイページ</h1>
 <div class="container">
 	<div class="row">
 		<div class="col-xs-6">
-			<table>
+			<h1>マイページ</h1>
+			<table class="table">
 				<tr>
 					<td><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
 				</tr>
@@ -48,13 +48,14 @@
 				     </td>
 				</tr>
 
-
+           <% if @user == current_user %>
 				<tr>
 					<td><%= link_to "" ,edit_user_path(@user.id),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_10783" %></td>
 				</tr>
+
 			</table>
 
-		   <ul>
+		   <ul class="mypage_btn">
 				<li>
 					<%= link_to "トレーニングする" ,user_trainings_path,class: "btn btn-primary btn-lg active" %>
 				</li>
@@ -68,12 +69,16 @@
 					<%= link_to "コミュニティ",user_posts_path,class: "btn btn-primary btn-lg active" %>
 				</li>
 			</ul>
+
+			<% else %>
+
+			<% end %>
 		</div>
 
 		<div class="col-xs-6">
 					<% current_user.posts.each do |post| %>
 					<%= link_to user_post_path(post.id) do %>
-						<table>
+						<table class="table">
 							<tr>
 								<td>
 									<%= attachment_image_tag post.user, :profile_image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
@@ -86,8 +91,8 @@
 							<% end %>
 
 							<tr>
-								<td><%= link_to "編集する",edit_user_post_path(post.id) %></td>
-								<td><%= link_to "削除する",user_post_path(post.id),method: :delete %></td>
+								<td><%= link_to edit_user_post_path(post.id) do %><i class="fas fa-edit"></i><% end %></td>
+								<td><%= link_to user_post_path(post.id),method: :delete do %><i class="fas fa-trash-alt"></i><% end %></td>
 
 							</tr>
 						</table>
