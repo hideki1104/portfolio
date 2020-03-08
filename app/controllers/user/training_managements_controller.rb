@@ -9,7 +9,6 @@ class User::TrainingManagementsController < ApplicationController
         @a[:training_name] = record.training.training_name
         @a[:number_time] = record.training.number_time
         @a[:set_count] = record.set_count
-        @a[:title] = @a[:training_name] + @a[:number_time].to_s
         @training_management << @a
       end
     end

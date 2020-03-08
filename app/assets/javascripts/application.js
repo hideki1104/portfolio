@@ -32,3 +32,16 @@ $(function(){
 		editable: true
 	});
 });
+
+$(function(){
+	$('.main_title').hide().fadeIn(5000);
+});
+
+$(function() {
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+
+ });

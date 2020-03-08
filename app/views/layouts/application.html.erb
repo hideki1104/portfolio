@@ -13,23 +13,35 @@
   <body>
     <header>
       <nav>
+        <%= link_to "Exerb" ,root_path,class: "header_title" %>
+
+        <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+
         <% if user_signed_in? %>
-        <ul class="nav navbar-nav navbar-right">
-           <li role="presentation"><%= link_to "ログアウト",destroy_user_session_path,method: :delete %></li>
-           <li role="presentation"><%= link_to "マイページ",user_path(current_user.id) %></li>
-           <li role="presentation"><%= link_to "トレーニング履歴",user_training_managements_path %></li>
-           <li role="presentation"><%= link_to "コミュニティ",user_posts_path %></li>
-         </ul>
+          <div id="sp-menu">
+            <ul>
+               <li role="presentation"><%= link_to "ログアウト",destroy_user_session_path,method: :delete %></li>
+               <li role="presentation"><%= link_to "マイページ",user_path(current_user.id) %></li>
+               <li role="presentation"><%= link_to "トレーニング履歴",user_training_managements_path %></li>
+               <li role="presentation"><%= link_to "コミュニティ",user_posts_path %></li>
+             </ul>
+           </div>
       </nav>
     </header>
 
     <header>
         <% else %>
-        <ul class="nav navbar-nav navbar-right">
-          <li role="presentation"><%= link_to "ログイン",new_user_session_path %></li>
-          <li role="presentation"><%= link_to "新規登録", new_user_registration_path %></li>
-          <li role="presentation"><%= link_to "about",homes_about_path %></li>
-        </ul>
+        <div id="sp-menu">
+          <ul>
+            <li role="presentation"><%= link_to "ログイン",new_user_session_path %></li>
+            <li role="presentation"><%= link_to "新規登録", new_user_registration_path %></li>
+            <li role="presentation"><%= link_to "about",homes_about_path %></li>
+          </ul>
+        </div>
       </nav>
     </header>
 
