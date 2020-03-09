@@ -2,39 +2,7 @@
 	<div class="row">
 		<div class="col-xs-6">
 			<h1>コミュニティ</h1>
-			<table class="table">
-				<tr>
-					<td><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
-					<td><%= link_to "" ,edit_user_path(@user.id),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_10783" %></td>
-				</tr>
-				<tr>
-					<th>名前</th>
-					<td><%= @user.name %></td>
-				</tr>
-				<tr>
-					<th>自己紹介</th>
-				</tr>
-				<tr>
-					<td><%= @user.introduction %></td>
-				</tr>
-				<tr>
-					<td><%= "フォロー数: #{@user.follower.count}" %><%= "フォロワー数: #{@user.followed.count}" %>
-					</td>
-				</tr>
-			</table>
-
-
-            <h2>新規投稿</h2>
-            <%= form_for(@post,url:user_posts_path) do |f| %>
-            <table>
-            	<tr>
-            		<td><%= f.text_area :impression, size: "50×100" %></td>
-            	</tr>
-            	<tr>
-            		<td><%= f.submit "投稿する",class: "btn btn-primary btn-lg active" %></td>
-            	</tr>
-			<% end %>
-			</table>
+			<%= render "user/posts/list",user:@user,post:@post,post_new:@post_new %>
 		</div>
 
 		<div class="col-xs-6">
@@ -42,12 +10,12 @@
 
 			<% @posts.each do |post| %>
 			<%= link_to user_post_path(post.id) do %>
-			<table class="table">
+			<table class="table table_post">
 				<tr>
 					<td>
 						<%= attachment_image_tag post.user, :profile_image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
 						    <%= post.user.name %>
-							<%= post.created_at %></td>
+							<%= post.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 ") %></td>
 				</tr>
 				<tr>
 					<td><%= post.impression %></td>
@@ -55,14 +23,15 @@
 			<% end %>
                 <% if post.user == current_user %>
 					<tr>
-						<td><%= link_to edit_user_post_path(post.id) do %><i class="fas fa-edit"></i><% end %></td>
-						<td><%= link_to user_post_path(post.id),method: :delete do %><i class="fas fa-trash-alt"></i><% end %></td>
+						<td><%= link_to edit_user_post_path(post.id) do %><i class="fas fa-edit"></i><% end %>
+						<%= link_to user_post_path(post.id),method: :delete do %><i class="fas fa-trash-alt"></i><% end %></td>
 
 					</tr>
 				<% else %>
 				<% end %>
 			</table>
 			<% end %>
+			<%= will_paginate @posts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'  %>
 		</div>
 	</div>
 </div>

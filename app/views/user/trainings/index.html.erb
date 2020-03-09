@@ -5,7 +5,7 @@
     <div class="col-xs-3">
       <h2>ジャンル検索</h2>
       <% @genres.each do |genre| %>
-          <table>
+          <table class="table table-hover">
             <tr>
               <td><%= link_to genre.genre_name,user_trainings_path(genre_id: genre.id) %></td>
             </tr>

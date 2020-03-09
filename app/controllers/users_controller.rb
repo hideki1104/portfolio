@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @weight = Weight.last
-    @post = Post.all
+    @post = current_user.posts.paginate(page: params[:page],per_page: 5).order(created_at: :desc)
   end
 
   def edit

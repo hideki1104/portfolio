@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-6">
 			<h1>マイページ</h1>
-			<table class="table">
+			<table class="table-bordered">
 				<tr>
 					<td><%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
 				</tr>
@@ -32,7 +32,8 @@
 				</tr>
 
 				<tr>
-					<td><%= "フォロー数: #{@user.follower.count}" %><%= "フォロワー数: #{@user.followed.count}" %>
+					<td><%= "#{@user.follower.count}フォロー" %>
+						<%= "#{@user.followed.count}フォロワー" %>
 					</td>
 				</tr>
 
@@ -76,14 +77,14 @@
 		</div>
 
 		<div class="col-xs-6">
-					<% current_user.posts.each do |post| %>
+					<% current_user.posts.order(created_at: :desc).each do |post| %>
 					<%= link_to user_post_path(post.id) do %>
-						<table class="table">
+						<table class="table table_post">
 							<tr>
 								<td>
 									<%= attachment_image_tag post.user, :profile_image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
 									    <%= post.user.name %>
-										<%= post.created_at %></td>
+										<%= post.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 ") %></td>
 							</tr>
 							<tr>
 								<td><%= post.impression %></td>
@@ -97,6 +98,7 @@
 							</tr>
 						</table>
 					<% end %>
+					<%= will_paginate @post, :previous_label => ' &lt 前へ', :next_label => '次へ &gt'  %>
 
 		</div>
 	</div>

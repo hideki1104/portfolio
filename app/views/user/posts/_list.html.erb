@@ -1,0 +1,33 @@
+
+			<table class="table-border">
+				<tr>
+					<td><%= attachment_image_tag user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
+					<td><%= link_to "" ,edit_user_path(user.id),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_10783" %></td>
+				</tr>
+				<tr>
+					<th>名前</th>
+					<td><%= user.name %></td>
+				</tr>
+				<tr>
+					<th>自己紹介</th>
+				</tr>
+				<tr>
+					<td><%= user.introduction %></td>
+				</tr>
+				<tr>
+					<td><%= "#{user.follower.count}フォロー" %><%= "#{user.followed.count}フォロワー" %>
+					</td>
+				</tr>
+			</table>
+
+			<h2>新規投稿</h2>
+            <%= form_for(post_new,url:user_posts_path) do |f| %>
+            <table>
+            	<tr>
+            		<td><%= f.text_area :impression, size: "50×100" %></td>
+            	</tr>
+            	<tr>
+            		<td><%= f.submit "投稿する",class: "btn btn-primary btn-lg active" %></td>
+            	</tr>
+			<% end %>
+			</table>

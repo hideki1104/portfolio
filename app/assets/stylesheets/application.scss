@@ -25,6 +25,7 @@
     padding: 0;
     box-sizing: border-box;
     font-size:18px;
+    color:#555555;
 }
 
 
@@ -38,6 +39,21 @@ header{
 
 header a{
 	color:#fff;
+}
+
+main a{
+  color:#555555;
+}
+
+.header_logo{
+    text-align:center;
+}
+
+.header_logo a{
+  font-size:30px;
+  display:inline-block;
+  font-weight:bold;
+  text-align:center;
 }
 
 #hm-icon{
@@ -94,7 +110,7 @@ header a{
 
 
 main{
-	background-color:#eeeeee;
+	background-color:#dfe3e4;
 }
 
 .profile_image{
@@ -133,6 +149,10 @@ position:relative;
 
 .mypage_btn li{
 	padding-top:10px;
+}
+
+.table_post{
+  border-bottom: solid 1px #fff;
 }
 
 footer{

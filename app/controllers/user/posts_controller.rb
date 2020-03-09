@@ -11,7 +11,8 @@ class User::PostsController < ApplicationController
   def index
   	@user = current_user
   	@post = Post.new
-  	@posts = Post.all
+    @posts = Post.all.paginate(page: params[:page],per_page: 5).order(created_at: :desc)
+    @post_new = Post.new
   end
 
   def show
