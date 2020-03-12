@@ -18,6 +18,10 @@ class User < ApplicationRecord
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
 
+ # DM機能アソシエーション
+ has_many :entries,dependent: :destroy
+ has_many :messages,dependent: :destroy
+
     # フォローしていればtrueを返す
   def follow(user_id)
     follower.create(followed_id: user_id)

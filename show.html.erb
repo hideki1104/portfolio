@@ -1,0 +1,23 @@
+<h1>DM</h1>
+
+<h4>参加者</h4>
+
+<% @entries.each do |entry| %>
+<%= entry.user.name %>さん
+<% end %>
+
+<% if @messages.present? %>
+	<% @message.each do |message| %>
+	<%= message.content %>
+	by<%= message.user.name %>さん
+<% else %>
+	<h3>メッセージはまだありません</h3>
+<% end %>
+
+<%= form_for(@message,url:user_messages_path) do |f| %>
+	<%= f.text_field :content,:placeholder => "メッセージを入力してください" %>
+	<%= f.hidden_field :room_id, :value => @room.id %>
+	<% f.submit "送信" %>
+<% end %>
+
+<%= link_to "Back",user_path(current_user.id) %>

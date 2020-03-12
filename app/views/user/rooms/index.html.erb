@@ -1,0 +1,10 @@
+<h1>トーク一覧</h1>
+	<% @anotherEntries.each do |entry| %>
+	<table>
+		<tr>
+			<td><%= attachment_image_tag entry.user, :profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
+			<td><%= entry.user.name %><td>
+			<td><%= link_to "トークする",user_room_path(entry.room_id),class: "btn btn-primary btn-lg active" %></td>
+		</tr>
+	</table>
+<% end %>

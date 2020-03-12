@@ -23,6 +23,8 @@ Rails.application.routes.draw do
       resource :favorites,only:[:create,:destroy]
       resources :post_comments,only:[:create,:edit,:update,:destroy]
     end
+    resources :messages, :only => [:create]
+    resources :rooms, :only => [:create,:show,:index]
   end
 
   namespace :admin do
