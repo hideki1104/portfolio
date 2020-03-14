@@ -11,3 +11,38 @@ th{
 	margin-bottom:10px;
 	width:400px;
 }
+
+.weight_checker{
+	text-align:center;
+	margin-bottom:100px;
+}
+
+.user_height{
+    display:inline-block;
+	font-size:20px;
+	margin: 30px 30px 30px 30px ;
+}
+
+.user_weight{
+    display:inline-block;
+	font-size:20px;
+}
+
+.number_list{
+	padding-top:50px;
+	padding-bottom:50px;
+}
+
+.number_list li {
+    width:200px;
+    height:200px;
+    margin-right:20px;
+	display:inline-block;
+	background-color:#fff;
+}
+
+.number{
+	font-size:40px;
+	width:180px;
+	height:60px;
+}

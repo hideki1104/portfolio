@@ -2,48 +2,35 @@
   <div class="row">
     <div class="col-xs-12">
 
-      <h1>体重入力画面</h1>
+      <div class="weight_checker">
+        <h1>体重チェッカー</h1>
 
-      <%= form_for(@weight, url: user_weights_path, method: :post) do |f| %>
-      <table>
-      	<tr>
-      		<th>身長</th>
-      		<td><%= @user.height %>cm</td>
-      	</tr>
-      	<tr>
-      		<th>現在の体重</th>
-      		<td><%= f.text_field :weight, autofocus: true, autocomplete: "weight" %>kg</td>
-      	</tr>
+        <%= form_for(@weight, url: user_weights_path, method: :post) do |f| %>
+        <h3 class="user_height">身長<%= @user.height %>cm</h3>
+        <h3 class="user_weight">現在の体重<%= f.text_field :weight, autofocus: true, autocomplete: "weight" %>kg</h3>
 
-          <tr><td><%= f.submit '計算する',name: "calculation_button",class: "btn btn-primary btn-lg active" %></td></tr>
-          <tr><td><%= f.submit '保存する',class: "btn btn-primary btn-lg active" %></td></tr>
-      </table>
-    </div>
+        <div><%= f.submit '計算する',name: "calculation_button",class: "btn btn-primary btn-lg active" %></div>
 
-      <div class="col-xs-12">
-        <table>
-         <tr>
-         	   <th>あなたのBMI</th>
-      	   <td><%= @bmi %></td>
-         </tr>
-
-          <tr>
-         	   <th>適正体重</th>
-      	   <td><%= @proper_weight %>kg</td>
-         </tr>
-
-          <tr>
-         	   <th>適正体重より</th>
-      	   <td><%= @difference %>kg</td>
-         </tr>
-
-          <tr>
-         	   <th>肥満度</th>
-      	   <td><%= @degree %></td>
-         </tr>
-
-        </table>
-        <% end %>
-      </div>
+          <ul class="number_list">
+            <li>
+               <h3>あなたのBMI</h3>
+            	 <div class="number"><%= @bmi %></div>
+            </li>
+            <li>
+             <h3>適正体重</h3>
+          	 <div class="number"><%= @proper_weight %></div>
+            </li>
+            <li>
+             <h3>適正体重より</h3>
+          	 <div class="number"><%= @difference %></div>
+            </li>
+            <li>
+             	<h3>肥満度</h3>
+          	  <div class="number"><%= @degree %></div>
+            </li>
+          </ul>
+           <%= f.submit '結果を保存する',class: "btn btn-primary btn-lg active" %>
+          <% end %>
+        </div>
     </div>
 </div>

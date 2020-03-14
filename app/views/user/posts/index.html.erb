@@ -15,7 +15,8 @@
 					<td>
 						<%= attachment_image_tag post.user, :profile_image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
 						    <%= post.user.name %>
-							<%= post.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 ") %></td>
+							<%= post.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 ") %>
+							</td>
 				</tr>
 				<tr>
 					<td><%= post.impression %></td>

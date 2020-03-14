@@ -48,7 +48,38 @@ class User::WeightsController < ApplicationController
   end
 
   def index
-  	@weights = Weight.all
+    @user = current_user
+  	@weights = current_user.weights.last
+    # 登録時の体重と現在の体重の差
+    @weight_difference = (@weights.weight - @user.registar_weight)
+    # 現在の体重と適正体重の差
+    @proper_weight = (((@user.height * 0.01) * (@user.height * 0.01)) * 22).round(2)
+    @proper_weight_difference = (@weights.weight - @proper_weight).round(2)
+
+    # 肥満度
+    @bmi = @weights.bmi
+        if @bmi < 16
+          @degree = "痩せすぎ"
+        elsif @bmi >= 16.00 && @bmi <= 16.99
+          @degree = "痩せ"
+        elsif @bmi >= 17.00 &&  @bmi <= 18.49
+          @degree = "痩せぎみ"
+        elsif @bmi >= 18.50 && @bmi <= 24.99
+          @degree = "普通体重"
+        elsif @bmi >= 25.00 && @bmi <= 29.99
+          @degree = "前肥満"
+        elsif @bmi >= 30.00 && @bmi <= 34.99
+          @degree = "肥満(1度)"
+        elsif @bmi >= 35.00 &&  @bmi <= 39.99
+          @degree = "肥満(2度)"
+        elsif 40.00 < @bmi
+          @degree = "肥満(3度)"
+        end
+
+    # chart_jsにWeightのデータを組み込む為の配列操作
+    weights_chart = current_user.weights.pluck(:weight,:created_at)
+    @weights_chart = weights_chart.map(&:first)
+    @weight_created = weights_chart.map(&:second)
   end
 
   def destroy

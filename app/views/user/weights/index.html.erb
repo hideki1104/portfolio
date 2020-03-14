@@ -1,48 +1,52 @@
 <h1>体重管理</h1>
 <%= link_to "体重入力画面へ",new_user_weight_path,class: "btn btn-primary btn-lg active" %>
 
-<div class="container">
-	<div class="row">
-		<div class="col-xs-6">
-			<h2>体重</h2>
-			<%= column_chart Weight.pluck(:created_at, :weight),
-			    id:'weight-chart',
-				width:'600px',
-				height:'600px' %>
-		</div>
+<h3>マイデータ</h3>
+		<table>
+			<tr>
+				<th>現在の体重</th>
+				<td><%= @weights.weight %>kg</td>
+			</tr>
+			<tr>
+				<th>BMI</th>
+				<td><%= @weights.bmi %></td>
+			</tr>
+			<tr>
+				<th>肥満度</th>
+				<td><%= @degree %></td>
+			</tr>
+			<tr>
+				<th>登録時からの変化</th>
+				<td><%= @weight_difference %>kg</td>
+			</tr>
+			<tr>
+				<th>標準体重まで</th>
+				<td><%= @proper_weight_difference %>kg</td>
+			</tr>
+		</table>
 
-		<div class="col-xs-6">
-			<h2>BMI</h2>
-			<%= column_chart Weight.pluck(:created_at, :bmi),
-			    id:'bmi-chart',
-				width:'600px',
-				height:'600px' %>
-		</div>
+		<canvas id="myChart" width="300" height="300"></canvas>
+		<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+		    type: 'bar',
+		    data: {
+		        labels: <%= @weight_created.to_json.html_safe %>,
+		        datasets: [{
+		            label: "体重",
+		            data: <%= @weights_chart %>,
+		            backgroundColor: 'rgba(255, 99, 132, 0.7)',
+		            borderColor: 'rgba(255, 50, 132, 0.7)',
+		            fill: false
+		        }]
+		    },
+		    options: {
+		        title:  {
+		          display: true,
+		          text: "体重"
+		        }
+		    }
+		});
+		</script>
 	</div>
 </div>
-
-<% current_user.weights.each do |weight| %>
-    <table>
-    	<tr>
-    		<th>登録日時</th>
-    		<th>体重</th>
-    		<th>BMI</th>
-    		<th></th>
-    	</tr>
-    	<tr>
-    		<td>
-			    <%= weight.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
-			</td>
-
-			<td>
-				<%= weight.weight %>kg
-			</td>
-			<td>
-				<%= weight.bmi %>
-			</td>
-			<td>
-				<%= link_to "削除",user_weight_path(weight.id),method: :delete %>
-			</td>
-		</tr>
-	</table>
-<% end %>

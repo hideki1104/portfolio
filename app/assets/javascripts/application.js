@@ -20,7 +20,9 @@
 //= require chartkick
 //= require Chart.bundle
 //= require jquery.turbolinks
+//= require Chart.min
 
+// トレーニング記録カレンダー
 $(function(){
 	$('#calendar').fullCalendar({
 		titleFormat: 'YYYY年 M月',
@@ -45,3 +47,5 @@ $(function() {
   });
 
  });
+
+// 体重管理のグラフ

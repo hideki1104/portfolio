@@ -84,3 +84,5 @@ gem 'jquery-turbolinks'
 gem 'kaminari','~> 1.1.1'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+
+gem 'chart-js-rails', '~> 0.1.4'
