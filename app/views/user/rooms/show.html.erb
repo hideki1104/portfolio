@@ -8,7 +8,12 @@
 
 <% if @messages.present? %>
 	<% @messages.each do |message| %>
-	<%= message.content %>
+	<table>
+		<tr>
+			<td><%= message.content %></td>
+			<td><%= message.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 ") %></td>
+		</tr>
+	</table>
 	by<%= message.user.name %>さん
 	<% end %>
 <% else %>
