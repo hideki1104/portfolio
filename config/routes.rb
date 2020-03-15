@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :conduct_trainings
     delete 'conduct_training' => 'conduct_trainings#destroy_all'
     resources :weights,only:[:index,:new,:create,:update,:destroy]
+     get 'weight_user' => 'weights#create_user'
     resources :training_managements,only:[:create,:index,:show]
     get 'events' , to: 'user/training_managements#events'
     resources :posts,only:[:create,:index,:show,:update,:edit,:destroy] do

@@ -1,31 +1,43 @@
-<h1>体重管理</h1>
-<%= link_to "体重入力画面へ",new_user_weight_path,class: "btn btn-primary btn-lg active" %>
+<div class="weight_index">
+	<h1>体重管理</h1>
+	<%= link_to "体重入力画面へ",new_user_weight_path,class: "btn btn-primary btn-lg active" %>
+</div>
 
-<h3>マイデータ</h3>
-		<table>
-			<tr>
-				<th>現在の体重</th>
-				<td><%= @weights.weight %>kg</td>
-			</tr>
-			<tr>
-				<th>BMI</th>
-				<td><%= @weights.bmi %></td>
-			</tr>
-			<tr>
-				<th>肥満度</th>
-				<td><%= @degree %></td>
-			</tr>
-			<tr>
-				<th>登録時からの変化</th>
-				<td><%= @weight_difference %>kg</td>
-			</tr>
-			<tr>
-				<th>標準体重まで</th>
-				<td><%= @proper_weight_difference %>kg</td>
-			</tr>
-		</table>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">
+	        <h3>マイデータ</h3>
+			<table>
+				<tr>
+					<th>現在の体重</th>
+					<td><%= @weights.weight %>kg</td>
+				</tr>
+				<tr>
+					<th>BMI</th>
+					<td><%= @weights.bmi %></td>
+				</tr>
+				<tr>
+					<th>肥満度</th>
+					<td><%= @degree %></td>
+				</tr>
+				<tr>
+					<th>登録時からの変化</th>
+					<td><%= @weight_difference %>kg</td>
+				</tr>
+				<tr>
+					<th>標準体重まで</th>
+					<td><%= @proper_weight_difference %>kg</td>
+				</tr>
+			</table>
+		</div>
 
-		<canvas id="myChart" width="300" height="300"></canvas>
+        <div class="col-xs-9">
+        	<h3>体重の変化</h3>
+			<div class="chart"><canvas id="myChart"></canvas></div>
+		</div>
+	</div>
+</div>
+
 		<script>
 		var ctx = document.getElementById("myChart").getContext('2d');
 		var myChart = new Chart(ctx, {
@@ -45,7 +57,16 @@
 		          display: true,
 		          text: "体重"
 		        }
-		    }
+		    },
+		    options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+	      }
 		});
 		</script>
 	</div>

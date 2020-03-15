@@ -47,6 +47,27 @@ class User::WeightsController < ApplicationController
         end
   end
 
+  def create_user
+    unless Weight.where(user_id: current_user.id).exists?
+
+    @user = current_user
+    @weight = Weight.new
+    @weight.weight = current_user.registar_weight
+    @weight.user_id = current_user.id
+    # BMIの計算
+      @a = (@user.registar_weight.to_f)
+      @bmi = (@a / ((@user.height * 0.01) * (@user.height * 0.01))).round(2)
+
+      @weight.bmi = @bmi
+
+      @weight.save
+      redirect_to user_path(current_user.id)
+
+     else
+      redirect_to user_path(current_user.id)
+     end
+  end
+
   def index
     @user = current_user
   	@weights = current_user.weights.last

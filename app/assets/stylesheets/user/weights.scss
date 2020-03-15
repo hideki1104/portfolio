@@ -34,6 +34,7 @@ th{
 }
 
 .number_list li {
+    position: relative;
     width:200px;
     height:200px;
     margin-right:20px;
@@ -42,7 +43,67 @@ th{
 }
 
 .number{
+    background-color:#dfe3e4;
 	font-size:40px;
-	width:180px;
 	height:60px;
+	margin: 0 10px 0 10px;
 }
+
+#openbtn,#openbtn2,#openbtn3,#openbtn4{
+	cursor:pointer;
+	display:inline-block;
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+#closebtn,#closebtn2,#closebtn3,#closebtn4{
+	cursor:pointer;
+	width:200px;
+	border-radius:4px;
+	border: 1px solid #ccc;
+	padding:12px 0;
+	margin: 16px auto 0;
+}
+
+#mask{
+	background: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+}
+
+#modal,#modal2,#modal3,#modal4{
+	background:#fff;
+	width:500px;
+	padding:20px;
+	border-radius:4px;
+	position:absolute;
+	top:80px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	transition: 0.4s;
+	z-index:2;
+}
+
+#mask.hidden{
+	display:none;
+}
+
+#model.hidden{
+	transform:translate(0,-500px);
+}
+
+.chart{
+	width:800px;
+	height:700px;
+}
+
+.weight_index{
+	text-align: center;
+}
+

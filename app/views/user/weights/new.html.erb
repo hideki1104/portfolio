@@ -15,22 +15,159 @@
             <li>
                <h3>あなたのBMI</h3>
             	 <div class="number"><%= @bmi %></div>
+               <span id="openbtn"><i class="fas fa-question-circle"></i></span>
             </li>
             <li>
-             <h3>適正体重</h3>
-          	 <div class="number"><%= @proper_weight %></div>
+               <h3>適正体重</h3>
+            	 <div class="number"><%= @proper_weight %></div><span id="openbtn2"><i class="fas fa-question-circle"></i></span>
             </li>
             <li>
-             <h3>適正体重より</h3>
-          	 <div class="number"><%= @difference %></div>
+               <h3>適正体重より</h3>
+            	 <div class="number"><%= @difference %></div><span id="openbtn3"><i class="fas fa-question-circle"></i></span>
             </li>
             <li>
-             	<h3>肥満度</h3>
-          	  <div class="number"><%= @degree %></div>
+               	<h3>肥満度</h3>
+            	  <div class="number"><%= @degree %></div><span id="openbtn4"><i class="fas fa-question-circle"></i></span>
             </li>
           </ul>
            <%= f.submit '結果を保存する',class: "btn btn-primary btn-lg active" %>
           <% end %>
+
+          <!-- モーダルウィンドウ -->
+          <div id="mask" class="hidden"></div>
+          <section id="modal" class="hidden">
+            <p>BMIとは？<br>BMI（Body Mass Index）はボディマス指数と呼ばれ、体重と身長から算出される肥満度を表す体格指数です。<br>子供には別の指数が存在しますが、成人ではBMIが国際的な指標として用いられています。<br>健康を維持するためは日頃からBMIを把握することが重要と言われています。</p>
+
+            <div id="closebtn">
+              Close
+            </div>
+          </section>
+
+          <section id="modal2" class="hidden">
+            <p>適性体重とは？<br>日本肥満学会では、BMIが22を適正体重（標準体重）とし、統計的に最も病気になりにくい体重とされています。<br>25以上を肥満、18.5未満を低体重と分類しています。</p>
+            <div id="closebtn2">
+              Close
+            </div>
+          </section>
+
+          <section id="modal3" class="hidden">
+            <p>現在の体重と標準体重との差を計算しています。</p>
+            <div id="closebtn3">
+              Close
+            </div>
+          </section>
+
+          <section id="modal4" class="hidden">
+            <p>肥満度とは？<br>世界保健機関(WHO)の判定基準で計算しています。
+              <table class="table">
+                <tr><th>BMI値</th></tr>
+                <tr><td>16未満</td><td>痩せすぎ</td><tr>
+                <tr><td>16.00〜16.99以下</td><td>痩せ</td><tr>
+                <tr><td>17.00〜18.49以下</td><td>痩せぎみ</td><tr>
+                <tr><td>18.50〜24.99以下</td><td>普通体重</td><tr>
+                <tr><td>25.00〜29.99以下</td><td>前肥満</td><tr>
+                <tr><td>30.00〜34.99以下</td><td> 肥満(1度)</td><tr>
+                <tr><td>35.00〜39.99以下</td><td>肥満(2度)</td><tr>
+                <tr><td>40.00以上</td><td>肥満(3度)</td><tr>
+              </table></p>
+            <div id="closebtn4">
+              Close
+            </div>
+          </section>
+
+          <script>
+            {
+              const openbtn = document.getElementById('openbtn');
+              const closebtn = document.getElementById('closebtn');
+              const modal = document.getElementById('modal');
+              const mask = document.getElementById('mask');
+
+              openbtn.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+                mask.classList.remove('hidden');
+              });
+
+              closebtn.addEventListener('click', () => {
+              modal.classList.add('hidden');
+              mask.classList.add('hidden');
+              });
+
+              mask.addEventListener('click', () => {
+              modal.classList.add('hidden');
+              mask.classList.add('hidden');
+              });
+
+            }
+
+            {
+              const openbtn2 = document.getElementById('openbtn2');
+              const closebtn2 = document.getElementById('closebtn2');
+              const modal2 = document.getElementById('modal2');
+              const mask = document.getElementById('mask');
+
+              openbtn2.addEventListener('click', () => {
+                modal2.classList.remove('hidden');
+                mask.classList.remove('hidden');
+              });
+
+              closebtn2.addEventListener('click', () => {
+              modal2.classList.add('hidden');
+              mask.classList.add('hidden');
+              });
+
+              mask.addEventListener('click', () => {
+              modal2.classList.add('hidden');
+              mask.classList.add('hidden');
+              });
+
+            }
+
+            {
+              const openbtn3 = document.getElementById('openbtn3');
+              const closebtn3 = document.getElementById('closebtn3');
+              const modal3 = document.getElementById('modal3');
+              const mask = document.getElementById('mask');
+
+              openbtn3.addEventListener('click', () => {
+                modal3.classList.remove('hidden');
+                mask.classList.remove('hidden');
+              });
+
+              closebtn3.addEventListener('click', () => {
+              modal3.classList.add('hidden');
+              mask.classList.add('hidden');
+              });
+
+              mask.addEventListener('click', () => {
+              modal3.classList.add('hidden');
+              mask.classList.add('hidden');
+              });
+
+            }
+
+            {
+              const openbtn4 = document.getElementById('openbtn4');
+              const closebtn4 = document.getElementById('closebtn4');
+              const modal4 = document.getElementById('modal4');
+              const mask = document.getElementById('mask');
+
+              openbtn4.addEventListener('click', () => {
+                modal4.classList.remove('hidden');
+                mask.classList.remove('hidden');
+              });
+
+              closebtn4.addEventListener('click', () => {
+              modal4.classList.add('hidden');
+              mask.classList.add('hidden');
+              });
+
+              mask.addEventListener('click', () => {
+              modal4.classList.add('hidden');
+              mask.classList.add('hidden');
+              });
+
+            }
+          </script>
         </div>
     </div>
 </div>
