@@ -1,42 +1,42 @@
-<h1>トレーニング詳細</h1>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-8">
+<div class="container">
+    <h1>トレーニング詳細</h1>
+    <div class="row">
+        <div class="col-xs-8">
 
 
-                <%= form_for(@conduct_training,url: user_conduct_trainings_path) do |f| %>
-                <table>
-                    <tr>
-                	  	<td><h2><%= @training.training_name %></h2></td>
-                    </tr>
+            <%= form_for(@conduct_training,url: user_conduct_trainings_path) do |f| %>
+            <table>
+                <tr>
+            	  	<td><h2><%= @training.training_name %></h2></td>
+                </tr>
 
-                    <tr>
-                    	<td><iframe width="750" height="450" src="https://www.youtube.com/embed/<%= @training.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-                     </tr>
-                 </table>
-             </div>
+                <tr>
+                	<td><iframe width="750" height="450" src="https://www.youtube.com/embed/<%= @training.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                 </tr>
+             </table>
+         </div>
 
-            <div class="col-xs-4 training_description">
-                <table>
-                    <tr>
-                    	<th>説明</th>
-                    </tr>
-                    <tr>
-                    	<td><%= @training.description %></td>
-                    </tr>
-                    <tr>
-                    	<th>おすすめ回数</th>
-                    	<td><%= @training.number_time %>回</td>
-                    </tr>
-                    <tr>
-                        <th>セット数</th>
-                        <td><%= f.hidden_field :training_id, :value => @training.id %>
-                        <%= f.select :set_count, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %></td>
-                    </tr>
-                        <td><%= f.submit "登録" %></td>
-                </table>
-            </div>
+        <div class="col-xs-4 training_description">
+            <table>
+                <tr>
+                	<th>説明</th>
+                </tr>
+                <tr>
+                	<td><%= @training.description %></td>
+                </tr>
+                <tr>
+                	<th>おすすめ回数</th>
+                	<td><%= @training.number_time %>回</td>
+                </tr>
+                <tr>
+                    <th>セット数</th>
+                    <td><%= f.hidden_field :training_id, :value => @training.id %>
+                    <%= f.select :set_count, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %></td>
+                </tr>
+                    <td><%= f.submit "登録" %></td>
+            </table>
         </div>
     </div>
-                <% end %>
+</div>
+            <% end %>

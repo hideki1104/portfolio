@@ -1,11 +1,17 @@
-<h1>トーク一覧</h1>
-	<% @anotherEntries.each do |entry| %>
-	<table class="table">
-		<tr>
-			<td><%= attachment_image_tag entry.user, 
-			:profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
-			<td><%= entry.user.name %>さん<td>
-			<td><%= link_to user_room_path(entry.room_id),class: "btn btn-primary btn-lg active" do %>トークする<i class="far fa-envelope"></i><% end %></td>
-		</tr>
-	</table>
-<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<h1>トーク一覧</h1>
+			<% @anotherEntries.each do |entry| %>
+				<table class="table">
+					<tr>
+						<td><%= attachment_image_tag entry.user, 
+						:profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
+						<td><%= entry.user.name %>さん<td>
+						<td><%= link_to user_room_path(entry.room_id),class: "btn btn-primary btn-lg active" do %>トークする<i class="far fa-envelope"></i><% end %></td>
+					</tr>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>

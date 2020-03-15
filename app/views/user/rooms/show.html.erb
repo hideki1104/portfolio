@@ -1,29 +1,35 @@
-<h1>トークルーム</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<h1>トークルーム</h1>
 
-<h4>参加者</h4>
+			<h4>参加者</h4>
 
-<% @entries.each do |entry| %>
-<%= entry.user.name %>さん
-<% end %>
+			<% @entries.each do |entry| %>
+			<%= entry.user.name %>さん
+			<% end %>
 
-<% if @messages.present? %>
-	<% @messages.each do |message| %>
-	<table>
-		<tr>
-			<td><%= message.content %></td>
-			<td><%= message.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 ") %></td>
-		</tr>
-	</table>
-	by<%= message.user.name %>さん
-	<% end %>
-<% else %>
-	<h3>メッセージはまだありません</h3>
-<% end %>
+			<% if @messages.present? %>
+				<% @messages.each do |message| %>
+				<table>
+					<tr>
+						<td><%= message.content %></td>
+						<td><%= message.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 ") %></td>
+					</tr>
+				</table>
+				by<%= message.user.name %>さん
+				<% end %>
+			<% else %>
+				<h3>メッセージはまだありません</h3>
+			<% end %>
 
-<%= form_for(@message,url:user_messages_path) do |f| %>
-	<%= f.text_field :content,:placeholder => "メッセージを入力してください" %>
-	<%= f.hidden_field :room_id, :value => @room.id %>
-	<%= f.submit "送信" %>
-<% end %>
+			<%= form_for(@message,url:user_messages_path) do |f| %>
+				<%= f.text_field :content,:placeholder => "メッセージを入力してください" %>
+				<%= f.hidden_field :room_id, :value => @room.id %>
+				<%= f.submit "送信" %>
+			<% end %>
 
-<%= link_to "Back",user_path(current_user.id) %>
+			<%= link_to "Back",user_path(current_user.id) %>
+		</div>
+	</div>
+</div>

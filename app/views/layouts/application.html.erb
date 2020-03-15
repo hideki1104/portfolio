@@ -12,14 +12,14 @@
 
   <body>
     <header>
-      <nav>
         <div class="header_logo">
           <%= link_to "Exerb" ,root_path%>
         </div>
 
+      <nav>
         <div id="hm-icon">
           <a class="menu-trigger" href="#">
-            <i class="fas fa-bars"></i>
+            <div class="hm"><i class="fas fa-bars"></i></div>
           </a>
         </div>
 
@@ -50,7 +50,7 @@
       <% end %>
 
         <main>
-          <%= yield %>
+            <%= yield %>
         </main>
 
     <footer>

@@ -1,35 +1,41 @@
-<h1>会員編集画面</h1>
-<%= form_for (@user) do |f| %>
-<table>
-	<tr>
-		<th>プロフィール画像</th>
-		<td><%= f.attachment_field :profile_image %></td>
-	</tr>
-    <tr>
-      <th>氏名</th>
-      <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
-    </tr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+        <h1>会員編集画面</h1>
+        <%= form_for (@user) do |f| %>
+        <table>
+        	<tr>
+        		<th>プロフィール画像</th>
+        		<td><%= f.attachment_field :profile_image %></td>
+        	</tr>
+            <tr>
+              <th>氏名</th>
+              <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+            </tr>
 
-    <tr>
-      <th>年齢</th>
-      <td><%= f.text_field :age, autofocus: true, autocomplete: "age" %>歳</td>
-    </tr>
+            <tr>
+              <th>年齢</th>
+              <td><%= f.text_field :age, autofocus: true, autocomplete: "age" %>歳</td>
+            </tr>
 
 
-    <tr>
-      <th>身長</th>
-      <td><%= f.text_field :height, autofocus: true, autocomplete: "height" %>cm</td>
-    </tr>
+            <tr>
+              <th>身長</th>
+              <td><%= f.text_field :height, autofocus: true, autocomplete: "height" %>cm</td>
+            </tr>
 
-    <tr>
-      <th>体重</th>
-      <td><%= f.text_field :registar_weight, autofocus: true, autocomplete: "registar_weight" %>kg</td>
-    </tr>
-    <tr>
-      <th>自己紹介</th>
-      <td><%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %></td>
-    </tr>
-    <tr><td><%= f.submit '更新する' %></td></tr>
+            <tr>
+              <th>体重</th>
+              <td><%= f.text_field :registar_weight, autofocus: true, autocomplete: "registar_weight" %>kg</td>
+            </tr>
+            <tr>
+              <th>自己紹介</th>
+              <td><%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %></td>
+            </tr>
+            <tr><td><%= f.submit '更新する' %></td></tr>
 
-  </table>
-<% end %>
+          </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
