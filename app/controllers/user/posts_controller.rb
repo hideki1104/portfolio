@@ -4,8 +4,16 @@ class User::PostsController < ApplicationController
   def create
   	@post = Post.new(post_params)
   	@post.user_id = current_user.id
-  	@post.save
-  	redirect_to user_posts_path
+  	if @post.save
+  	 redirect_to user_posts_path
+
+    else
+      @user = current_user
+      @post = Post.new
+      @posts = Post.all.paginate(page: params[:page],per_page: 5).order(created_at: :desc)
+      @post_new = Post.new
+      render :index
+    end
   end
 
 

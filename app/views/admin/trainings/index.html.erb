@@ -1,27 +1,33 @@
-<h1>トレーニング一覧</h1>
+<div class="container">
+  <h1>トレーニング一覧</h1>
+  <%= link_to "トレーニング新規",new_admin_training_path,class: "btn btn-primary btn-lg active" %>
+  <div class="row">
+    <div class="col-xs-3">
+      <h2>ジャンル検索</h2>
+      <% @genres.each do |genre| %>
+          <table class="table table-hover">
+            <tr>
+              <td><%= link_to genre.genre_name,user_trainings_path(genre_id: genre.id) %></td>
+            </tr>
+          </table>
+      <% end %>
+    </div>
 
-<h2>ジャンル検索</h2>
-<% @genres.each do |genre| %>
-    <table>
-      <tr>
-        <td><%= genre.genre_name %></td>
-      </tr>
-    </table>
-<% end %>
+    <div class="col-xs-9">
+      <% @trainings.each do |training| %>
+        <table class="training_movies">
+          <tr>
+            <td><h3><%= training.training_name %></h3></td>
+          </tr>
+          <tr>
+            <td><iframe width="300" height="200" src="https://www.youtube.com/embed/<%= training.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+          </tr>
 
-
-<% @trainings.each do |training| %>
-  <table>
-  	<tr>
-	  	<th>タイトル</th>
-	  	<td><%= training.training_name %></td>
-    </tr>
-    <tr>
-    	<td><iframe width="560" height="315" src="https://www.youtube.com/embed/<%= training.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-    </tr>
-
-    <tr>
-      <td><%= link_to "編集へ" ,edit_admin_training_path(training.id) %></td>
-    </tr>
-  </table>
-<% end %>
+          <tr>
+            <td><%= link_to "詳細へ" ,user_training_path(training.id) %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

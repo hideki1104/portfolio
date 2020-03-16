@@ -39,15 +39,11 @@
 				</tr>
 				<tr>
 					<th>体重</th>
-					<% if params[:weight] %>
-						<%= @weight.weight %>
-					<% else %>
-						<td><%= @user.registar_weight %>kg</td>
-					<% end %>
+					<td><%= @weight.weight %>kg</td>
 				</tr>
 
 				<tr>
-					<td><%= "#{@user.follower.count}フォロー" %>
+					<td><%= link_to "#{@user.follower.count}フォロー",users_path %>
 						<%= "#{@user.followed.count}フォロワー" %>
 					</td>
 				</tr>
@@ -79,7 +75,7 @@
 					<%= link_to "トレーニング記録", user_training_managements_path,class: "btn btn-primary btn-lg active" %>
 				</li>
 				<li>
-					<%= link_to "体重管理",user_weights_path,class: "btn btn-primary btn-lg active" %>
+					<%= link_to "体重管理",new_user_weight_path,class: "btn btn-primary btn-lg active" %>
 				</li>
 			    <li>
 					<%= link_to "コミュニティ",user_posts_path,class: "btn btn-primary btn-lg active" %>

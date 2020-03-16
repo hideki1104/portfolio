@@ -37,6 +37,8 @@ header{
 	width:100%;
 	height:80px;
 	background-color:#444444;
+  position:fixed;
+  z-index: 100;
 }
 
 header a{
@@ -121,6 +123,7 @@ width:100%;
 height:700px;
 background-size:cover;
 position:relative;
+padding-top:80px;
 }
 
 .main_title{
@@ -148,6 +151,12 @@ main a{
 
 .container{
   background-color:#dfe3e4;
+  padding-top:80px;
+}
+
+.col-xs-12{
+  padding-left:0;
+  padding-right:0;
 }
 
 .profile_image{

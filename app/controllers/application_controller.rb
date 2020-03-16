@@ -2,7 +2,12 @@ class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
 	def after_sign_in_path_for(resource)
-		user_weight_user_path
+		case resource
+		when Admin
+			admin_top_path
+		else
+		    user_weight_user_path
+		end
 	end
 
 	protected

@@ -1,31 +1,37 @@
-<h1>動画投稿ページ</h1>
-<%= form_for(@training, url: admin_trainings_path) do |f| %>
-<table>
-	<tr>
-		<th>タイトル</th>
-		<td><%= f.text_field :training_name, autofocus: true, autocomplete: "training_name" %></td>
-	</tr>
-    <tr>
-      <th>youtube url</th>
-      <td><%= f.text_field :youtube_url,autofocus: true, autocomplete: "youtube_url" %></td>
-    </tr>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+        <h1>動画投稿ページ</h1>
+        <%= form_for(@training, url: admin_trainings_path) do |f| %>
+        <table>
+        	<tr>
+        		<th>タイトル</th>
+        		<td><%= f.text_field :training_name, autofocus: true, autocomplete: "training_name" %></td>
+        	</tr>
+            <tr>
+              <th>youtube url</th>
+              <td><%= f.text_field :youtube_url,autofocus: true, autocomplete: "youtube_url" %></td>
+            </tr>
 
-    <tr>
-      <th>ジャンル</th>
-      <td><%= f.collection_select(:genre_id, Genre.where(class_status: '0'), :id, :genre_name) %></td>
-    </tr>
-    <tr>
-      <th>説明</th>
-      <td><%= f.text_area :description, autofocus: true, autocomplete: "description" %></td>
-    </tr>
+            <tr>
+              <th>ジャンル</th>
+              <td><%= f.collection_select(:genre_id, Genre.where(class_status: '0'), :id, :genre_name) %></td>
+            </tr>
+            <tr>
+              <th>説明</th>
+              <td><%= f.text_area :description, autofocus: true, autocomplete: "description" %></td>
+            </tr>
 
-    <tr>
-      <th>おすすめ回数</th>
-      <td><%= f.text_field :number_time, autofocus: true, autocomplete: "number_time" %>回</td>
-    </tr>
+            <tr>
+              <th>おすすめ回数</th>
+              <td><%= f.text_field :number_time, autofocus: true, autocomplete: "number_time" %>回</td>
+            </tr>
 
-    <tr><td><%= f.submit '投稿する' %></td></tr>
+            <tr><td><%= f.submit '投稿する',class: "btn btn-primary btn-lg active" %></td></tr>
 
-  </table>
-  <%= link_to "ジャンル管理へ",admin_genres_path %>
-<% end %>
+          </table>
+          <%= link_to "ジャンル管理へ",admin_genres_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -42,8 +42,11 @@ class User::WeightsController < ApplicationController
           render :new
 
         else
-          @weight.save
+          if @weight.save
           redirect_to user_weights_path
+          else
+            render :new
+          end
         end
   end
 

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "homes#top"
   get 'homes/about'
-  resources :users,only:[:show,:edit,:update,:destroy]
+  get "admin/top" => "admin#top"
+  resources :users,only:[:index,:show,:edit,:update,:destroy]
 
   namespace :user do
 	  resources :trainings,only:[:index,:show]

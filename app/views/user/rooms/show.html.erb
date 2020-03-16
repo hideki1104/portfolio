@@ -1,35 +1,47 @@
+<div class="room_header">
+	<div class="container">
+		<%= link_to "Back",user_path(current_user.id),class: "btn btn-primary btn-xs" %>
+		<h1>トークルーム<i class="fas fa-comments"></i></h1>
+
+		<% @entries.each do |entry| %>
+		<%= entry.user.name %>さん
+		<% end %>
+	</div>
+</div>
+
 <div class="container">
 	<div class="row">
-		<div class="col-xs-6">
-			<h1>トークルーム</h1>
-
-			<h4>参加者</h4>
-
-			<% @entries.each do |entry| %>
-			<%= entry.user.name %>さん
-			<% end %>
+		<div class="col-xs-12">
 
 			<% if @messages.present? %>
-				<% @messages.each do |message| %>
-				<table>
-					<tr>
-						<td><%= message.content %></td>
-						<td><%= message.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分 ") %></td>
-					</tr>
-				</table>
-				by<%= message.user.name %>さん
+				<div class="chat_container">
+					<% @messages.each do |message| %>
+					    <div class="chat">
+							<div class="chat_image">
+								<%= attachment_image_tag message.user, :profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
+							</div>
+							<div class="chat_area">
+							    <div class="chat_message">
+									<%= message.content %>
+								</div>
+							</div>
+							<%= message.created_at.strftime("%-m/%-d/ %-H:%-M ") %>
+						</div>
+					<% end %>
+				<% else %>
+					<h3 class="not_message">メッセージはまだありません</h3>
 				<% end %>
-			<% else %>
-				<h3>メッセージはまだありません</h3>
-			<% end %>
-
-			<%= form_for(@message,url:user_messages_path) do |f| %>
-				<%= f.text_field :content,:placeholder => "メッセージを入力してください" %>
-				<%= f.hidden_field :room_id, :value => @room.id %>
-				<%= f.submit "送信" %>
-			<% end %>
-
-			<%= link_to "Back",user_path(current_user.id) %>
+			</div>
 		</div>
 	</div>
 </div>
+
+		<%= form_for(@message,url:user_messages_path) do |f| %>
+		<div class="submit_btn">
+			<div class="container">
+				<%= f.text_field :content,:placeholder => "メッセージを入力してください" %>
+				<%= f.hidden_field :room_id, :value => @room.id %>
+				<%= f.submit "送信",class: "btn btn-primary btn-xs" %>
+			    <% end %>
+			</div>
+		</div>

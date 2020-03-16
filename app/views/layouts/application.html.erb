@@ -32,22 +32,18 @@
                <li role="presentation"><%= link_to "コミュニティ",user_posts_path %></li>
              </ul>
            </div>
-      </nav>
-    </header>
-
-    <header>
         <% else %>
-        <div id="sp-menu">
-          <ul>
-            <li role="presentation"><%= link_to "ログイン",new_user_session_path %></li>
-            <li role="presentation"><%= link_to "新規登録", new_user_registration_path %></li>
-            <li role="presentation"><%= link_to "about",homes_about_path %></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-
+          <div id="sp-menu">
+            <ul>
+              <li role="presentation"><%= link_to "ログイン",new_user_session_path %></li>
+              <li role="presentation"><%= link_to "新規登録", new_user_registration_path %></li>
+              <li role="presentation"><%= link_to "about",homes_about_path %></li>
+            </ul>
+          </div>
       <% end %>
+    </nav>
+  </header>
+
 
         <main>
             <%= yield %>

@@ -1,3 +1,105 @@
 // Place all the styles related to the user/rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.room_header{
+	position:fixed;
+	top: 0px;
+	z-index: 50;
+	width: 100%;
+}
+.room_header .container {
+	background-color:#dfe3e4;
+}
+// .room_header * {
+// 	position: relative;
+// 	z-index: 50;
+// }
+
+.chat_container{
+	padding-top:150px;
+	background:#EEEEEE;
+	width:100%;
+}
+
+.chat{
+	margin-top:30px;
+	padding-bottom:50px;
+	margin-left:50px;
+}
+
+.chat_image{
+    display:inline-block;
+}
+.chat_area{
+    position:relative;
+    display:inline-block;
+}
+.chat_message{
+	display:inline-block;
+	border:1px solid #66FF66;
+	background:#66FF66;
+	border-radius:10px;
+	margin-left:30px;
+	padding:10px 20px;
+}
+
+.chat_message:after{
+	content:"";
+	position:absolute;
+	top:30%;
+	left:20px;
+	display:block;
+	height: 0px;
+    border-style: solid;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #66FF66 transparent transparent;
+}
+
+
+.submit_btn{
+	position:fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	text-align:center;
+}
+
+
+.submit_btn .container{
+	background:#dfe3e4;
+	padding-top:30px;
+	padding-bottom:30px;
+
+}
+
+.submit_btn .btn-primary{
+	width:50px;
+}
+
+.fa-comments{
+	font-size:50px;
+}
+
+.room_header .btn-primary{
+	width:50px;
+}
+
+.not_message{
+	padding-top:300px;
+	padding-bottom:300px;
+	margin:0 auto;
+}
+
+#message_content{
+	width:280px;
+	height:40px;
+}
+
+.btn .fa-envelope{
+	color:#fff;
+}
+
+.chat_list{
+	list-style:none;
+}
