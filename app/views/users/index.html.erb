@@ -7,12 +7,35 @@
 				<li>
 				  <%= attachment_image_tag following, :profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
 				  <%= following.name %>
+
+				  <% unless following == current_user %>
+					  <% if current_user.following?(following) %>
+					  <%= link_to 'フォロー外す', unfollow_path(following.id), method: :POST,class: "btn btn-primary btn-xs" %>
+					  <% else %>
+					    <%= link_to 'フォローする', follow_path(following.id), method: :POST,class: "btn btn-primary btn-xs" %>
+					  <% end %>
+				<% end %>
 				</li>
 				<% end %>
 			</ul>
 		</div>
 		<div class="col-xs-6">
 			<h2>フォロワー</h2>
+			<ul>
+				<% current_user.follower_user.where.not(id: current_user.id).each do |follower| %>
+				<li>
+				  <%= attachment_image_tag follower, :profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
+				  <%= follower.name %>
+				  <% unless follower == current_user %>
+					  <% if current_user.following?(follower) %>
+					  <%= link_to 'フォロー外す', unfollow_path(follower.id), method: :POST,class: "btn btn-primary btn-xs" %>
+					  <% else %>
+					    <%= link_to 'フォローする', follow_path(follower.id), method: :POST,class: "btn btn-primary btn-xs" %>
+					  <% end %>
+				  <% end %>
+				</li>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 </div>

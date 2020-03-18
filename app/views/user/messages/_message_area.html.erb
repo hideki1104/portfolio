@@ -1,0 +1,10 @@
+<% if messages.present? %>
+	<div id="js-chat-container"  class="chat_container">
+		<% messages.each do |message| %>
+			<%= render message, message: message %>
+		<% end %>
+	<% else %>
+		<h3 class="not_message">メッセージはまだありません</h3>
+	<% end %>
+	<span id="message_end"></span>
+</div>

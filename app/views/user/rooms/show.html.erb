@@ -12,31 +12,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
-
-			<% if @messages.present? %>
-				<div class="chat_container">
-					<% @messages.each do |message| %>
-					    <div class="chat">
-							<div class="chat_image">
-								<%= attachment_image_tag message.user, :profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
-							</div>
-							<div class="chat_area">
-							    <div class="chat_message">
-									<%= message.content %>
-								</div>
-							</div>
-							<%= message.created_at.strftime("%-m/%-d/ %-H:%-M ") %>
-						</div>
-					<% end %>
-				<% else %>
-					<h3 class="not_message">メッセージはまだありません</h3>
-				<% end %>
-			</div>
+            <%= render "user/messages/message_area",messages:@messages %>
 		</div>
 	</div>
 </div>
 
-		<%= form_for(@message,url:user_messages_path) do |f| %>
+		<%= form_for(@message,url:user_messages_path, remote: true) do |f| %>
 		<div class="submit_btn">
 			<div class="container">
 				<%= f.text_field :content,:placeholder => "メッセージを入力してください" %>
@@ -45,3 +26,12 @@
 			    <% end %>
 			</div>
 		</div>
+
+<script>
+	var element = document.documentElement;
+	var bottom = element.scrollHeight - element.clientHeight + 500;
+	console.log(bottom);
+	setTimeout(function() {
+	  scrollTo(0, bottom);}
+	, 100);
+</script>

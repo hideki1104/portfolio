@@ -44,7 +44,7 @@
 
 				<tr>
 					<td><%= link_to "#{@user.follower.count}フォロー",users_path %>
-						<%= "#{@user.followed.count}フォロワー" %>
+						<%= link_to "#{@user.followed.count}フォロワー",users_path %>
 					</td>
 				</tr>
 
@@ -52,9 +52,9 @@
 					<td>
 						<% unless @user == current_user %>
 						  <% if current_user.following?(@user) %>
-						    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST %>
+						    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST,class: "btn btn-primary btn-xs" %>
 						  <% else %>
-						    <%= link_to 'フォローする', follow_path(@user.id), method: :POST %>
+						    <%= link_to 'フォローする', follow_path(@user.id), method: :POST,class: "btn btn-primary btn-xs" %>
 						  <% end %>
 						<% end %>
 				     </td>
@@ -107,8 +107,8 @@
 							<% end %>
 
 							<tr>
-								<td><%= link_to edit_user_post_path(post.id) do %><i class="fas fa-edit"></i><% end %></td>
-								<td><%= link_to user_post_path(post.id),method: :delete do %><i class="fas fa-trash-alt"></i><% end %></td>
+								<td><%= link_to edit_user_post_path(post.id) do %><i class="fas fa-edit"></i><% end %>
+								<%= link_to user_post_path(post.id),method: :delete do %><i class="fas fa-trash-alt"></i><% end %></td>
 
 							</tr>
 						</table>

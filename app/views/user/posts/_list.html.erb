@@ -14,7 +14,8 @@
 					<td><%= user.introduction %></td>
 				</tr>
 				<tr>
-					<td><%= "#{user.follower.count}フォロー" %><%= "#{user.followed.count}フォロワー" %>
+					<td><%= link_to "#{user.follower.count}フォロー",users_path %>
+						<%= link_to "#{user.followed.count}フォロワー",users_path %>
 					</td>
 				</tr>
 			</table>

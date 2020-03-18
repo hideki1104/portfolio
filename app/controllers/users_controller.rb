@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+
+  # フォロー、フォロワー一覧ページ
+  def index
+  end
+
   def show
   	@user = User.find(params[:id])
     @weight = Weight.last
