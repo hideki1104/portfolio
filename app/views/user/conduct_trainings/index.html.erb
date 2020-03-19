@@ -1,7 +1,7 @@
 <div class="container">
+	<h1>今日のトレーニング(<%= @today %>)</h1>
 	<div class="row">
 		<div class="col-xs-12">
-			<h1>今日のトレーニング(<%= @today %>)</h1>
 			<%= link_to "トレーニングを全て削除","/user/conduct_training",method: :delete %>
 
 				<% @conduct_trainings.each do |conduct| %>

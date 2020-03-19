@@ -1,75 +1,76 @@
 <div class="container">
+  <h1>新規登録</h1>
   <div class="row">
     <div class="col-xs-12">
-      <h2>新規登録</h2>
+      <div class="registration_new">
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-      <table>
-        <tr>
-          <th>氏名</th>
-          <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
-        </tr>
-
-        <tr>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+        <table registration_new>
+          <tr>
+            <div>氏名
+            <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
           </div>
-        </tr>
+
+          <tr>
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+          </tr>
 
 
-        <tr>
-          <div class="field">
-            <%= f.label :password %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
+          <tr>
+            <div class="field">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+          </tr>
+
+          <tr>
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+          </tr>
+
+          <tr>
+            <div>性別
+              <%= f.label :男  %>
+              <%= f.radio_button :sex, :男 %>
+              <%= f.label :女  %>
+              <%= f.radio_button :sex, :女 %>
+            </div>
+
+          <tr>
+            <div>年齢
+              <%= f.text_field :age, autofocus: true, autocomplete: "age" %>歳
+           </div>
+
+
+          <tr>
+            <div>身長
+              <%= f.text_field :height, autofocus: true, autocomplete: "height" %>cm
+            </div>
+
+          <tr>
+            <div>体重
+            <%= f.text_field :registar_weight, autofocus: true, autocomplete: "registar_weight" %>kg
+            </div>
+          </tr>
+
+        </table>
+
+          <div class="actions">
+            <%= f.submit "Sign up",class: "btn btn-primary btn-lg active" %>
           </div>
-        </tr>
+        <% end %>
 
-        <tr>
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-          </div>
-        </tr>
-
-        <tr>
-          <th>性別</th>
-          <td>
-            <%= f.label :男  %>
-            <%= f.radio_button :sex, :男 %>
-            <%= f.label :女  %>
-            <%= f.radio_button :sex, :女 %>
-          </td>
-        </tr>
-
-        <tr>
-          <th>年齢</th>
-          <td><%= f.text_field :age, autofocus: true, autocomplete: "age" %>歳</td>
-        </tr>
-
-
-        <tr>
-          <th>身長</th>
-          <td><%= f.text_field :height, autofocus: true, autocomplete: "height" %>cm</td>
-        </tr>
-
-        <tr>
-          <th>体重</th>
-          <td><%= f.text_field :registar_weight, autofocus: true, autocomplete: "registar_weight" %>kg</td>
-        </tr>
-
-      </table>
-
-        <div class="actions">
-          <%= f.submit "Sign up",class: "btn btn-primary btn-lg active" %>
-        </div>
-      <% end %>
-
-      <%= render "devise/shared/links" %>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 </div>

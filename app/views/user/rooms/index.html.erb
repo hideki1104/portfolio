@@ -1,16 +1,16 @@
 <div class="container">
+	<h1>トーク一覧</h1>
 	<div class="row">
 		<div class="col-xs-6">
-			<h1>トーク一覧</h1>
 			<% @anotherEntries.each do |entry| %>
 			    <ul class="chat_list">
 			    	<li>
-			    		<div>
+			    		<div class="chat-container">
 							<%= attachment_image_tag entry.user,
 							:profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
 							<%= entry.user.name %>さん
+						    <%= link_to user_room_path(entry.room_id),class: "btn btn-primary btn-lg active" do %>トークする<i class="far fa-envelope"></i><% end %>
 						</div>
-						<div><%= link_to user_room_path(entry.room_id),class: "btn btn-primary btn-lg active" do %>トークする<i class="far fa-envelope"></i><% end %></div>
 					</li>
 				</ul>
 			<% end %>

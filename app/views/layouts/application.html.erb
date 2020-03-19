@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/34ad885584.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
   </head>
 
   <body>
@@ -48,6 +49,39 @@
         <main>
             <%= yield %>
         </main>
+
+        <% if user_signed_in? %>
+          <div class="icon_container">
+              <ul>
+                <li>
+                  <%= link_to user_trainings_path do %>
+                  <i class="fas fa-running"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to user_training_managements_path do %>
+                  <i class="far fa-clipboard"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_weight_path do %>
+                  <i class="fas fa-weight"></i>
+                  <% end %>
+                </li>
+                  <li>
+                  <%= link_to user_posts_path do %>
+                  <i class="fas fa-user-friends"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to user_rooms_path do %>
+                  <i class="fas fa-comments"></i>
+                  <% end %>
+                </li>
+            </ul>
+          </div>
+          <% else %>
+        <% end %>
 
     <footer>
       <p>©︎</p>

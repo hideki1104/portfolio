@@ -1,10 +1,10 @@
-			<table class="table-border">
+			<table class="table">
 				<tr>
 					<td><%= attachment_image_tag user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
 					<td><%= link_to "" ,edit_user_path(user.id),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_10783" %></td>
 				</tr>
 				<tr>
-					<th>名前</th>
+					<td>名前</td>
 					<td><%= user.name %></td>
 				</tr>
 				<tr>
@@ -20,15 +20,12 @@
 				</tr>
 			</table>
 
-			<h2>新規投稿</h2>
-            <%= form_for(post_new,url:user_posts_path) do |f| %>
-            <%= render 'layouts/error_messages', model: f.object %>
-            <table>
-            	<tr>
-            		<td><%= f.text_area :impression, size: "50×100" %></td>
-            	</tr>
-            	<tr>
-            		<td><%= f.submit "投稿する",class: "btn btn-primary btn-lg active" %></td>
-            	</tr>
-			<% end %>
-			</table>
+			<div class="new_post">
+				<h2>新規投稿</h2>
+	            <%= form_for(post_new,url:user_posts_path) do |f| %>
+	            <%= render 'layouts/error_messages', model: f.object %>
+
+	            <%= f.text_area :impression, size: "50×100" %>
+	            <%= f.submit "投稿する",class: "btn btn-primary btn-lg active" %>
+				<% end %>
+			</div>

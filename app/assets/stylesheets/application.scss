@@ -28,6 +28,20 @@
     color:#555555;
 }
 
+h1{
+  text-align:center;
+}
+
+h1:after{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #ec715f;
+    margin: 8px auto 30px auto;
+    text-align:center;
+}
+
 
 
 //-----------------------ヘッダー---------------------//
@@ -139,6 +153,24 @@ padding-top:80px;
   text-align:center;
   text-shadow: 1px #fff;
 }
+//-------------------アバウト------------------------//
+
+#about_image{
+  background-image:url(about_image1.webp);
+  background-attachment: fixed;
+  width:100%;
+  height:700px;
+  background-size:cover;
+  position:relative;
+  padding-top:80px;
+}
+
+.about_title{
+  position:absolute;
+  top:100px;
+  left:200px;
+  font-size:70px;
+}
 
 //-------------------メイン------------------------//
 
@@ -163,6 +195,10 @@ main a{
   padding-right:0;
 }
 
+.col-md-6{
+  padding: 0 20px;
+}
+
 .profile_image{
 	border-radius:50%;
 }
@@ -181,8 +217,126 @@ main a{
   border-bottom: solid 1px #fff;
 }
 
+.session_new{
+  text-align:center;
+}
+
+.registration_new{
+  text-align:center;
+}
+
+.new_post{
+  display:inline-block;
+}
+
 footer{
     height:50px;
     color:#fff;
 	background-color:#444444;
+}
+
+  .icon_container{
+    display:none;
+  }
+
+  .chat-container .fallback{
+    width:50px;
+    height:50px;
+  }
+
+
+@media screen and (max-width:425px) {
+
+  .image1 {
+    background-image: url(portfolio_top4.jpeg);
+    width:100%;
+    height:700px;
+    background-size:cover;
+    position:relative;
+    padding-top:80px;
+  }
+
+  .main_title{
+  position:absolute;
+  top:70px;
+  right:30px;
+  font-size:50px;
+  font-weight:bold;
+  text-align:center;
+  text-shadow: 1px #fff;
+}
+
+  .container{
+    width:100%;
+  }
+
+  .row{
+    width:100%;
+  }
+
+  #post_impression{
+    width:80%;
+  }
+
+  .btn{
+    width:80%;
+    margin:0 auto;
+  }
+
+  .table-bordered{
+    text-align:center;
+  }
+  .mypage_btn{
+    display:none;
+  }
+
+  .col-xs-12{
+    margin: 0 10px;
+  }
+
+  .new_post{
+    text-align:center;
+  }
+
+  h2{
+    text-align:center;
+  }
+
+  h3{
+    text-align:center;
+  }
+
+  .icon_container{
+    display:inline-block;
+    position:fixed;
+    z-index:10;
+    bottom:0;
+    right:0;
+    width:100%;
+    height:80px;
+    list-style:none;
+    background:#555;
+    line-height:80px;
+  }
+
+  .icon_container ul{
+    text-align:center;
+  }
+
+  .icon_container li{
+    display:inline-block;
+    margin: auto 20px;
+  }
+
+  .icon_container .far{
+    color:#fff;
+    font-size:30px;
+  }
+
+    .icon_container .fas{
+    color:#fff;
+    font-size:30px;
+  }
+
+
 }

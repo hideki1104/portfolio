@@ -1,9 +1,9 @@
 <div class="container">
+  <h1>体重チェッカー</h1>
   <div class="row">
     <div class="col-xs-12">
 
       <div class="weight_checker">
-        <h1>体重チェッカー</h1>
 
         <%= form_for(@weight, url: user_weights_path, method: :post) do |f| %>
         <h3 class="user_height">身長<%= @user.height %>cm</h3>
