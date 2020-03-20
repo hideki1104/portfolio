@@ -21,11 +21,22 @@
 				</tr>
 				<tr>
 					<th>登録時からの変化</th>
-					<td><%= @weight_difference %>kg</td>
+					<td><% if @weight_difference.positive? %>
+							+<%= @weight_difference %>kg
+						<% else %>
+							<%= @weight_difference %>kg
+						<% end %>
+					</td>
 				</tr>
 				<tr>
 					<th>標準体重より</th>
-					<td><%= @proper_weight_difference %>kg</td>
+					<td>
+						<% if @proper_weight_difference.positive? %>
+							+<%= @proper_weight_difference %>kg
+						<% else %>
+							<%= @proper_weight_difference %>kg
+						<% end %>
+					</td>
 				</tr>
 			</table>
 		</div>

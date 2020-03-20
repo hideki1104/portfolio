@@ -23,7 +23,15 @@
             </li>
             <li>
                <h3>適正体重より</h3>
-            	 <div class="number"><%= @difference %></div><span id="openbtn3"><i class="fas fa-question-circle"></i></span>
+               <% if @difference.nil? %>
+                 <div class="number"><%= @difference %></div><span id="openbtn3"><i class="fas fa-question-circle"></i></span>
+               <% else %>
+                   <% if @difference.positive? %>
+                    	 <div class="number">+<%= @difference %></div><span id="openbtn3"><i class="fas fa-question-circle"></i></span>
+                   <% else %>
+                       <div class="number"><%= @difference %></div><span id="openbtn3"><i class="fas fa-question-circle"></i></span>
+                   <% end %>
+                <% end %>
             </li>
             <li>
                	<h3>肥満度</h3>
