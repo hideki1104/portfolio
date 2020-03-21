@@ -1,4 +1,5 @@
 class User::TrainingsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @genres = Genre.where(class_status: '0')

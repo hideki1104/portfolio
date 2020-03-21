@@ -137,11 +137,45 @@ header a{
 
 .image1 {
 background-image: url(portfolio_top1.jpeg);
+background-attachment: fixed;
 width:100%;
 height:700px;
 background-size:cover;
 position:relative;
 padding-top:80px;
+}
+
+.image2{
+background-image: url(top_image2.jpeg);
+background-attachment: fixed;
+width:100%;
+height:700px;
+background-size:cover;
+position:relative;
+}
+
+.top_content{
+  width:100%;
+  height:700px;
+  color:#fff;
+  position:relative;
+  background:#555;
+}
+
+.top_title2{
+  position:absolute;
+  top:130px;
+  left:30%;
+  font-weight:bold;
+  font-size:40px;
+}
+
+.top_content_text{
+  position:absolute;
+  top:230px;
+  left:30%;
+  color:#fff;
+  font-size:20px;
 }
 
 .main_title{
@@ -152,6 +186,27 @@ padding-top:80px;
   font-weight:bold;
   text-align:center;
   text-shadow: 1px #fff;
+}
+
+#main_image2{
+  position:relative;
+}
+
+.top_btn{
+  position:absolute;
+  bottom:180px;
+  left:35%;
+}
+
+.top_btn2{
+  position:absolute;
+  bottom:80px;
+  left:35%;
+}
+
+.top_btn2 p{
+  text-align:center;
+  color:#fff;
 }
 //-------------------アバウト------------------------//
 

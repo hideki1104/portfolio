@@ -1,4 +1,5 @@
 class User::ConductTrainingsController < ApplicationController
+  before_action :authenticate_user!
   def index
   	@conduct_trainings = current_user.conduct_trainings
   	@conduct_training  = ConductTraining.new

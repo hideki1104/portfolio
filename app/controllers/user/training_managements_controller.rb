@@ -1,4 +1,6 @@
 class User::TrainingManagementsController < ApplicationController
+
+  before_action :authenticate_user!
   def index
     # @training_managementの中に時間、トレーニング名、回数、セット数を配列で入れる
   	@training_management = []
