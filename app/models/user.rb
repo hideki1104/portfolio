@@ -22,6 +22,10 @@ class User < ApplicationRecord
  has_many :entries,dependent: :destroy
  has_many :messages,dependent: :destroy
 
+ #通知機能アソシエーション
+ has_many :active_notifications, class_name: 'Notification', foreign_key: 'visetor_id', dependent: :destroy
+ has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
     # フォローしていればtrueを返す
   def follow(user_id)
     follower.create(followed_id: user_id)
@@ -35,5 +39,17 @@ class User < ApplicationRecord
   # フォローしていればtrueを返す
   def following?(user)
     following_user.include?(user)
+  end
+
+  #フォロー、フォロワーの通知機能
+  def create_notification_follow!(current_user)
+    temp = Notification.where(["visetor_id = ? and visited_id = ? and action = ?", current_user.id, id ,'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+        )
+      notification.save if notification.valid?
+    end
   end
 end

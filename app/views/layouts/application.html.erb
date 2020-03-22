@@ -29,7 +29,8 @@
             <ul>
                <li role="presentation"><%= link_to "ログアウト",destroy_user_session_path,method: :delete %></li>
                <li role="presentation"><%= link_to "マイページ",user_path(current_user.id) %></li>
-               <li role="presentation"><%= link_to "トレーニング履歴",user_training_managements_path %></li>
+               <li role="presentation"><%= link_to "トレーニング記録",user_training_managements_path %></li>
+               <li role="presentation"><%= link_to "体重管理",new_user_weight_path %></li>
                <li role="presentation"><%= link_to "コミュニティ",user_posts_path %></li>
              </ul>
            </div>

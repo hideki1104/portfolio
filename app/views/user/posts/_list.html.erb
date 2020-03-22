@@ -1,10 +1,14 @@
-			<table class="table">
+			<table class="table-bordered">
 				<tr>
 					<td><%= attachment_image_tag user, :profile_image, :fill, 150, 150, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %></td>
+				</tr>
+				<tr>
 					<td><%= link_to "" ,edit_user_path(user.id),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_10783" %></td>
 				</tr>
 				<tr>
-					<td>名前</td>
+					<th>名前</th>
+				</tr>
+				<tr>
 					<td><%= user.name %></td>
 				</tr>
 				<tr>

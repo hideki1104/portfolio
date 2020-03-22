@@ -1,5 +1,7 @@
 class Admin::TrainingsController < ApplicationController
 
+  before_action :authenticate_admin!
+
   def new
  	@training = Training.new
   end
