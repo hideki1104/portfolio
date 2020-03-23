@@ -3,7 +3,7 @@ class RelationshipsController < ApplicationController
 before_action :authenticate_user!
 	def follow
 		current_user.follow(params[:id])
-		# current_user.follow.create_notification_follow!(current_user)
+		User.find(params[:id]).create_notification_follow!(current_user)
 		redirect_to user_posts_path
 	end
 

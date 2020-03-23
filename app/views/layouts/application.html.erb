@@ -27,11 +27,21 @@
         <% if user_signed_in? %>
           <div id="sp-menu">
             <ul>
-               <li role="presentation"><%= link_to "ログアウト",destroy_user_session_path,method: :delete %></li>
-               <li role="presentation"><%= link_to "マイページ",user_path(current_user.id) %></li>
+               <li role="presentation"><%= link_to "ログアウト",destroy_admin_session_path,method: :delete %></li>
+               <li role="presentation"><%= link_to "マイページ",user_path(current_user.id) %>
+               </li>
                <li role="presentation"><%= link_to "トレーニング記録",user_training_managements_path %></li>
                <li role="presentation"><%= link_to "体重管理",new_user_weight_path %></li>
                <li role="presentation"><%= link_to "コミュニティ",user_posts_path %></li>
+             </ul>
+           </div>
+        <% elsif admin_signed_in? %>
+          <div id="sp-menu">
+            <ul>
+               <li role="presentation"><%= link_to "ログアウト",destroy_admin_session_path,method: :delete %></li>
+               <li role="presentation"><%= link_to "新規トレーニング追加",new_admin_training_path %></li>
+               <li role="presentation"><%= link_to "トレーニング一覧",admin_trainings_path %></li>
+               <li role="presentation"><%= link_to "ジャンル管理",admin_genres_path %></li>
              </ul>
            </div>
         <% else %>

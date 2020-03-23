@@ -24,7 +24,7 @@
 					</table>
 				<% end %>
 					<%= form_for(@training_management,url:user_training_managements_path, method: :post) do |f| %>
-					<%= f.submit "トレーニングを記録する" %>
+					<%= f.submit "トレーニングを記録する",class:"btn btn-primary" %>
 					<% end %>
 			<%= link_to "トレーニングに戻る", user_trainings_path %>
 		</div>

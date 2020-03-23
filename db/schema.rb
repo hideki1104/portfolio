@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_042221) do
+ActiveRecord::Schema.define(version: 2020_03_23_041258) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2020_03_22_042221) do
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "message_id"
+    t.integer "room_id"
   end
 
   create_table "post_comments", force: :cascade do |t|

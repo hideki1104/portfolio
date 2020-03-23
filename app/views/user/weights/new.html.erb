@@ -3,6 +3,10 @@
   <div class="row">
     <div class="col-xs-12">
 
+      <div class="btn_graph">
+        <%= link_to "グラフへ",user_weights_path,class:"btn btn-info" %>
+      </div>
+
       <div class="weight_checker">
 
         <%= form_for(@weight, url: user_weights_path, method: :post) do |f| %>

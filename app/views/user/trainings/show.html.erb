@@ -18,7 +18,7 @@
          </div>
 
         <div class="col-xs-4 training_description">
-            <table>
+            <table class="table">
                 <tr>
                 	<th>説明</th>
                 </tr>
@@ -34,7 +34,7 @@
                     <td><%= f.hidden_field :training_id, :value => @training.id %>
                     <%= f.select :set_count, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %></td>
                 </tr>
-                    <td><%= f.submit "登録" %></td>
+                    <td><%= f.submit "登録",class:"btn btn-primary" %></td>
             </table>
         </div>
     </div>

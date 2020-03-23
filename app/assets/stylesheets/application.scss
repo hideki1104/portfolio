@@ -301,6 +301,15 @@ footer{
     height:50px;
   }
 
+  h2 {
+  border-bottom: solid 3px #FF8856;
+  display:inline-block;
+}
+.fc-widget-header.fc-day-header {
+  box-sizing: border-box;
+  width: 166px;
+}
+
 
 @media screen and (max-width:425px) {
 
