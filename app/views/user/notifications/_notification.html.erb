@@ -1,4 +1,4 @@
 <div class="notification_part">
 	<%= attachment_image_tag notification.visetor, :profile_image, :fill, 50, 50, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %>
-	<%= notification_form(notification).html_safe %><%= time_ago_in_words(notification.created_at) %>前
+	<%= notification_form(notification).html_safe %>(<%= time_ago_in_words(notification.created_at) %>前)
 </div>

@@ -17,6 +17,16 @@
           <%= link_to "Exerb",destroy_user_session_path,method: :delete %>
         </div>
 
+
+        <% if user_signed_in? %>
+          <div class="bell_notification">
+              <% if unchecked_notifications.any? %>
+                <i class="fas fa-circle" style="color: red;"></i>
+              <% end %>
+                <%= link_to user_notifications_path do %><i class="fas fa-bell"></i><% end %>
+          </div>
+        <% end %>
+
       <nav>
         <div id="hm-icon">
           <a class="menu-trigger" href="#">
