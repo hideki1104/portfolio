@@ -3,9 +3,12 @@
 		<%= link_to "Back",user_path(current_user.id),class: "btn btn-primary btn-xs" %>
 		<h1>トークルーム<i class="fas fa-comments"></i></h1>
 
-		<% @entries.each do |entry| %>
-		<%= entry.user.name %>さん
-		<% end %>
+        <div class="talk_user">
+			<% @entries.each do |entry| %>
+			<i class="fas fa-user-circle"></i>
+			<%= entry.user.name %>さん
+			<% end %>
+		</div>
 	</div>
 </div>
 

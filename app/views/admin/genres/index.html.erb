@@ -4,30 +4,50 @@
 			<h1>ジャンル管理</h1>
 
 			<%= form_for(@genre,url:admin_genres_path) do |f| %>
-				<%= f.text_field :genre_name, autofocus: true, autocomplete: "genre_name" %>
-				<%= f.label :有効  %>
-				<%= f.radio_button :class_status, :有効 %>
-				<%= f.label :無効  %>
-				<%= f.radio_button :class_status, :無効 %>
-				<%= f.submit "追加",class: "btn btn-primary btn-lg active" %>
-			<% end %>
-
-
-			<% @genres.each do |genre| %>
-			    <table class="table">
-			    	<tr>
-			    		<td>
-							<%= genre.genre_name %>
-						</td>
+			<div class="new_genre_table">
+				<table>
+					<tr>
 						<td>
-						    <%= genre.class_status %>
+							ジャンル名
+							<%= f.text_field :genre_name, autofocus: true, autocomplete: "genre_name" %>
+							<%= f.label :有効  %>
+							<%= f.radio_button :class_status, :有効 %>
+							<%= f.label :無効  %>
+							<%= f.radio_button :class_status, :無効 %>
 						</td>
+					</tr>
+					<tr>
 						<td>
-							<%= link_to "編集する" ,edit_admin_genre_path(genre.id) %>
+							<%= f.submit "追加",class: "btn btn-primary btn-lg active" %>
 						</td>
 					</tr>
 				</table>
+			</div>
 			<% end %>
+
+
+            <div class="genre_table">
+				    <table class="table-bordered">
+				    	<tr>
+				    		<th>ジャンル名</th>
+				    		<th>ステータス</th>
+				    		<th></th>
+				    	</tr>
+				    	<% @genres.each do |genre| %>
+				    	<tr>
+				    		<td>
+								<%= genre.genre_name %>
+							</td>
+							<td>
+							    <%= genre.class_status %>
+							</td>
+							<td>
+								<%= link_to "編集する" ,edit_admin_genre_path(genre.id),class:"btn btn-info" %>
+							</td>
+						</tr>
+						<% end %>
+					</table>
+			</div>
 		</div>
 	</div>
 </div>

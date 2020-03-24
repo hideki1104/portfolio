@@ -6,15 +6,14 @@
 
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
-        <table registration_new>
+        <table class="registration_new">
           <tr>
-            <div>氏名
+            <%= f.label :お名前 %>
             <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-          </div>
 
           <tr>
             <div class="field">
-              <%= f.label :email %><br />
+              <%= f.label :メールアドレス %>
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
           </tr>
@@ -22,43 +21,49 @@
 
           <tr>
             <div class="field">
-              <%= f.label :password %>
+              <%= f.label :パスワード %>
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
+              <% end %>
               <%= f.password_field :password, autocomplete: "new-password" %>
             </div>
           </tr>
 
           <tr>
             <div class="field">
-              <%= f.label :password_confirmation %><br />
+              <%= f.label :確認用パスワード %>
               <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
             </div>
           </tr>
 
           <tr>
-            <div>性別
+            <div class="field">
+              <%= f.label :性別 %>
               <%= f.label :男  %>
               <%= f.radio_button :sex, :男 %>
               <%= f.label :女  %>
               <%= f.radio_button :sex, :女 %>
             </div>
+          </tr>
 
           <tr>
-            <div>年齢
+            <div class="field">
+            <%= f.label :年齢 %>
               <%= f.text_field :age, autofocus: true, autocomplete: "age" %>歳
-           </div>
-
-
-          <tr>
-            <div>身長
-              <%= f.text_field :height, autofocus: true, autocomplete: "height" %>cm
             </div>
+          </tr>
+
 
           <tr>
-            <div>体重
-            <%= f.text_field :registar_weight, autofocus: true, autocomplete: "registar_weight" %>kg
+            <div class="field">
+            <%= f.label :身長 %>
+              <%= f.text_field :height, autofocus: true, autocomplete: "height" %>cm
+          </div>
+
+          <tr>
+            <div class="field">
+              <%= f.label :体重 %>
+              <%= f.text_field :registar_weight, autofocus: true, autocomplete: "registar_weight" %>kg
             </div>
           </tr>
 

@@ -2,23 +2,14 @@
 <div class="container">
     <h1>トレーニング詳細</h1>
     <div class="row">
-        <div class="col-xs-8">
-
-
+        <div class="col-md-8 col-xs-12 show_youtube_movie">
             <%= form_for(@conduct_training,url: user_conduct_trainings_path) do |f| %>
-            <table>
-                <tr>
-            	  	<td><h2><%= @training.training_name %></h2></td>
-                </tr>
-
-                <tr>
-                	<td><iframe width="750" height="450" src="https://www.youtube.com/embed/<%= @training.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
-                 </tr>
-             </table>
+            <h2><%= @training.training_name %></h2>
+                <iframe width="700" height="450" src="https://www.youtube.com/embed/<%= @training.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
          </div>
 
-        <div class="col-xs-4 training_description">
-            <table class="table">
+        <div class="col-md-4 col-xs-12 training_description">
+            <table>
                 <tr>
                 	<th>説明</th>
                 </tr>
@@ -26,17 +17,17 @@
                 	<td><%= @training.description %></td>
                 </tr>
                 <tr>
-                	<th>おすすめ回数</th>
-                	<td><%= @training.number_time %>回</td>
+                	<td>おすすめ回数:
+                	<%= @training.number_time %>回</td>
                 </tr>
                 <tr>
-                    <th>セット数</th>
-                    <td><%= f.hidden_field :training_id, :value => @training.id %>
+                    <td>セット数
+                    <%= f.hidden_field :training_id, :value => @training.id %>
                     <%= f.select :set_count, [["1",1],["2",2],["3",3],["4",4],["5",5],["6",6],["7",7],["8",8],["9",9],["10",10]] %></td>
                 </tr>
                     <td><%= f.submit "登録",class:"btn btn-primary" %></td>
+                <% end %>
             </table>
         </div>
     </div>
 </div>
-            <% end %>

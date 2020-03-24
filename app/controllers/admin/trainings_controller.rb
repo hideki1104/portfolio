@@ -32,7 +32,7 @@ class Admin::TrainingsController < ApplicationController
   def update
   	@training = Training.find(params[:id])
   	@training.update(training_params)
-  	redirect_to trainings_path
+  	redirect_to admin_trainings_path
   end
 
   def destroy

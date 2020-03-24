@@ -4,4 +4,57 @@
 
 .admin_top li{
 	list-style:none;
+	padding-top:30px;
+}
+
+.admin_top{
+	text-align:center;
+	padding-bottom:100px;
+}
+
+.admin_training_btn{
+	text-align:right;
+}
+
+.admin_training_btn .btn{
+	width:200px;
+}
+
+#new_training{
+	text-align:center;
+	padding-bottom:120px;
+}
+
+.new_admin_training_table{
+	text-align:center;
+}
+
+.new_admin_training_table table{
+	margin: 30px auto;
+}
+
+
+.admin_genre_btn{
+	text-align:right;
+}
+.admin_genre_btn .btn-info{
+	width:120px;
+}
+
+.new_genre_table table{
+	margin: 30px auto;
+}
+
+.genre_list{
+	list-style:none;
+	text-align:center;
+}
+
+.genre_table table{
+	margin: 30px auto;
+	border: 1px solid #555;
+}
+
+.genre_edit_table table{
+	margin: 0 auto;
 }

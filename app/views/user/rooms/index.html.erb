@@ -1,9 +1,9 @@
 <div class="container">
 	<h1>トーク一覧</h1>
 	<div class="row">
-		<div class="col-xs-6">
-			<% @anotherEntries.each do |entry| %>
+		<div class="col-xs-12">
 			    <ul class="chat_list">
+			    	<% @anotherEntries.each do |entry| %>
 			    	<li>
 			    		<div class="chat-container">
 							<%= attachment_image_tag entry.user,
@@ -12,8 +12,8 @@
 						    <%= link_to user_room_path(entry.room_id),class: "btn btn-primary btn-lg active" do %>トークする<i class="far fa-envelope"></i><% end %>
 						</div>
 					</li>
+					<% end %>
 				</ul>
-			<% end %>
 		</div>
 	</div>
 </div>

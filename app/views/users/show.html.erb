@@ -33,6 +33,7 @@
 					<th>年齢</th>
 					<td><%= @user.age %>才</td>
 				</tr>
+			<% if @user.id == current_user.id %>
 				<tr>
 					<th>身長</th>
 					<td><%= @user.height %>cm</td>
@@ -41,6 +42,7 @@
 					<th>体重</th>
 					<td><%= @weight.weight %>kg</td>
 				</tr>
+			<% end %>
 
 				<tr>
 					<td><%= link_to "#{@user.follower.count}フォロー",users_path %>

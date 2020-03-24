@@ -319,6 +319,101 @@ footer{
   height:50px;
 }
 
+.field{
+  margin: 10px auto;
+}
+
+.registration_new{
+  text-align:center;
+}
+
+ .training_description{
+  padding-bottom:150px;
+  text-align:left;
+ }
+
+ .training_description .btn-primary{
+  width:150px;
+  }
+
+  .show_youtube_movie{
+    text-align:center;
+  }
+
+  .genre_search{
+    text-align:left;
+    padding-left:20px;
+  }
+
+  .youtube_movies{
+    margin-bottom:100px;
+  }
+
+  .conduct_training_index{
+    text-align:center;
+  }
+
+  .conduct_training_index table{
+    margin: 20px auto;
+  }
+
+  .conduct_training_index .btn-xs{
+    width:50px;
+    margin-left:20px;
+  }
+
+  .conduct_btn .btn-info{
+    width:170px;
+  }
+
+  .conduct_training_list{
+    border-bottom: 1px solid #fff;
+    padding-bottom:20px;
+  }
+
+  #new_training_management{
+    margin-bottom:100px;
+  }
+
+  .user_edit table{
+    margin: 30px auto;
+  }
+
+  .user_edit_btn{
+    text-align:center;
+    margin-bottom:100px;
+  }
+
+  .weight_index{
+    text-align:right;
+  }
+
+  .weight_index .btn-info{
+    width:150px;
+  }
+
+  .mydata{
+    text-align:center;
+  }
+
+  .graph{
+    text-align:center;
+  }
+
+  .talk_user{
+    font-size:25px;
+    text-align:center;
+  }
+
+  .admin_training_edit table{
+    margin: 50px auto;
+  }
+
+  .training_delete_btn ,.training_edit_btn{
+    text-align:center;
+  }
+
+
 
 @media screen and (max-width:425px) {
 
@@ -366,7 +461,7 @@ footer{
   }
 
   .col-xs-12{
-    margin: 0 10px;
+    margin: 0 5%;
   }
 
   .new_post{
@@ -379,6 +474,7 @@ footer{
 
   h3{
     text-align:center;
+    padding-top:30px;
   }
 
   .icon_container{
@@ -413,5 +509,20 @@ footer{
     font-size:30px;
   }
 
+  .top_content{
+    display:none;
+  }
+
+  #main_image2{
+    display:none;
+  }
+
+  #myChart{
+    width:200px;
+  }
+
+  .youtube_movies{
+    text-align:center;
+  }
 
 }

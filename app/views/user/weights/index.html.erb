@@ -1,10 +1,10 @@
 <div class="container">
 		<div class="weight_index">
 		<h1>体重管理</h1>
-		<%= link_to "体重入力画面へ",new_user_weight_path,class: "btn btn-primary btn-lg active" %>
+		<%= link_to "体重入力画面へ",new_user_weight_path,class:"btn btn-info" %>
 		</div>
 	<div class="row">
-		<div class="col-xs-3">
+		<div class="col-md-3 col-xs-12 mydata">
 	        <h2>マイデータ</h2>
 			<table class="table">
 				<tr>
@@ -41,7 +41,7 @@
 			</table>
 		</div>
 
-        <div class="col-xs-9">
+        <div class="col-md-9 col-xs-12 graph">
         	<h2>体重の変化</h2>
 			<div class="chart"><canvas id="myChart"></canvas></div>
 		</div>

@@ -1,13 +1,15 @@
 <div class="container">
   <h1>トレーニング一覧</h1>
-  <%= link_to "トレーニング新規",new_admin_training_path,class: "btn btn-primary btn-lg active" %>
+    <div class="admin_training_btn">
+      <%= link_to "トレーニング新規",new_admin_training_path,class: "btn btn-primary btn-lg active" %>
+    </div>
   <div class="row">
     <div class="col-xs-3">
       <h2>ジャンル検索</h2>
       <% @genres.each do |genre| %>
           <table class="table table-hover">
             <tr>
-              <td><%= link_to genre.genre_name,user_trainings_path(genre_id: genre.id) %></td>
+              <td><%= link_to genre.genre_name,admin_trainings_path(genre_id: genre.id) %></td>
             </tr>
           </table>
       <% end %>
@@ -24,7 +26,7 @@
           </tr>
 
           <tr>
-            <td><%= link_to "詳細へ" ,user_training_path(training.id) %></td>
+            <td><%= link_to "編集する" ,edit_admin_training_path(training.id),class:"btn btn-info" %></td>
           </tr>
         </table>
       <% end %>
