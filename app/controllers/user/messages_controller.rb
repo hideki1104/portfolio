@@ -4,10 +4,13 @@ class User::MessagesController < ApplicationController
 	def create
 		if Entry.where(:user_id => current_user.id, :room_id => params[:message][:room_id]).present?
 			@message = Message.create(message_params)
-			@room = @message.room
-			@room.create_notification_message!(current_user, @message.id)
+			@entry = Entry.where(room_id: @message.room_id).where.not(user_id: current_user.id)
+			@entry.each do |entry|
+			  @message.room.create_notification_message!(current_user, @message.id ,entry.user_id)
+		    end
 		end
 	end
+
 
 	private
 

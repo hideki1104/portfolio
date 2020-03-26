@@ -15,7 +15,7 @@
 						    <%= form_for(@room,url: user_rooms_path) do |f| %>
 							    <%= form_for(@entry,url:user_rooms_path) do |e| %>
 							    <%= e.hidden_field :user_id, :value => @user.id %>
-						    <%= f.submit "新しくチャットを始める" %>
+						    <td><%= f.submit "新しくチャットを始める",class: "btn btn-primary btn-xs new_chat_btn" %></td>
 						    <% end %>
 						    <% end %>
 						<% end %>
@@ -54,17 +54,18 @@
 					<td>
 						<% unless @user == current_user %>
 							  <% if current_user.following?(@user) %>
-							    <%= link_to 'フォロー外す', unfollow_path(@user.id), method: :POST,class: "btn btn-primary btn-xs" %>
+							    <%= link_to 'フォロー中', unfollow_path(@user.id), method: :POST,class: "btn btn-primary btn-xs" %>
 							  <% else %>
 							    <%= link_to 'フォローする', follow_path(@user.id), method: :POST,class: "btn btn-primary btn-xs" %>
 							  <% end %>
 						<% end %>
 				     </td>
 				</tr>
-
+              <% if @user.id == current_user.id %>
 				<tr>
 					<td><%= link_to "" ,edit_user_path(@user.id),class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_10783" %></td>
 				</tr>
+			<% end %>
 
 			</table>
 

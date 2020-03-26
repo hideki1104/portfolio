@@ -4,14 +4,8 @@ class Room < ApplicationRecord
 	 has_many :notifications, dependent: :destroy
 
 	 #メッセージ通知メソッド
-    def create_notification_message!(current_user, message_id)
-      #messageモデルからcurrent_user以外のuser_idとroom_idを見つける。
-      m_temp_ids = Message.select(:user_id).where(room_id: id).where.not(user_id: current_user.id).distinct
-      m_temp_ids.each do |m_temp_id|
-        save_notification_message!(current_user, message_id, m_temp_id['user_id'])
-      end
-
-      save_notification_message!(current_user, message_id, user_id) if m_temp_ids.blank?
+    def create_notification_message!(current_user, message_id, user_id)
+        save_notification_message!(current_user, message_id,user_id)
     end
 
     def save_notification_message!(current_user, message_id, visited_id)

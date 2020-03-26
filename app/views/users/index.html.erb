@@ -10,7 +10,7 @@
 
 				  <% unless following == current_user %>
 					  <% if current_user.following?(following) %>
-					  <%= link_to 'フォロー外す', unfollow_path(following.id), method: :POST,class: "btn btn-primary btn-xs users_index_btn" %>
+					  <%= link_to 'フォロー中', unfollow_path(following.id), method: :POST,class: "btn btn-primary btn-xs users_index_btn" %>
 					  <% else %>
 					    <%= link_to 'フォローする', follow_path(following.id), method: :POST,class: "btn btn-primary btn-xs users_index_btn" %>
 					  <% end %>
@@ -28,7 +28,7 @@
 				  <%= follower.name %>
 				  <% unless follower == current_user %>
 					  <% if current_user.following?(follower) %>
-					  <%= link_to 'フォロー外す', unfollow_path(follower.id), method: :POST,class: "btn btn-primary btn-xs users_index_btn" %>
+					  <%= link_to 'フォロー中', unfollow_path(follower.id), method: :POST,class: "btn btn-primary btn-xs users_index_btn" %>
 					  <% else %>
 					    <%= link_to 'フォローする', follow_path(follower.id), method: :POST,class: "btn btn-primary btn-xs users_index_btn" %>
 					  <% end %>

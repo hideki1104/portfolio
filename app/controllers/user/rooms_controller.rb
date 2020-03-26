@@ -2,7 +2,9 @@ class User::RoomsController < ApplicationController
 	before_action :authenticate_user!
 	def create
 		@room = Room.create
+		#current_userのentry
 		@entry1 = Entry.create(:room_id => @room.id, :user_id => current_user.id)
+		#チャットする相手のentry
 		@entry2 = Entry.create(entry_params)
 		redirect_to user_room_path(@room.id)
 	end

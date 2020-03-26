@@ -17,4 +17,7 @@
 	</div>
 	<div class="top_btn2"><p>アカウントをお持ちでない方は</p><%= link_to "新規登録", new_user_registration_path,class: "btn btn-primary btn-lg active" %>
 	</div>
+	<div class="admin_icon">
+		<%= link_to new_admin_session_path do  %><i class="fas fa-user-shield"></i><% end %>
+	</div>
 </section>

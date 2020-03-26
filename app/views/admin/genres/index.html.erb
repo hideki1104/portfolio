@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
+	<div class="row">
+		<div class="col-xs-12">
 			<h1>ジャンル管理</h1>
 
 			<%= form_for(@genre,url:admin_genres_path) do |f| %>
@@ -26,27 +26,18 @@
 			<% end %>
 
 
-            <div class="genre_table">
-				    <table class="table-bordered">
-				    	<tr>
-				    		<th>ジャンル名</th>
-				    		<th>ステータス</th>
-				    		<th></th>
-				    	</tr>
-				    	<% @genres.each do |genre| %>
-				    	<tr>
-				    		<td>
-								<%= genre.genre_name %>
-							</td>
-							<td>
-							    <%= genre.class_status %>
-							</td>
-							<td>
-								<%= link_to "編集する" ,edit_admin_genre_path(genre.id),class:"btn btn-info" %>
-							</td>
+			<div class="genre_table">
+				<table class="table-bordered">
+					<tbody>
+						<% @genres.each do |genre| %>
+						<tr>
+							<td><%= genre.genre_name %></td>
+							<td><%= genre.class_status %></td>
+							<td><%= link_to "編集する" ,edit_admin_genre_path(genre.id),class:"btn btn-info" %></td>
 						</tr>
 						<% end %>
-					</table>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
