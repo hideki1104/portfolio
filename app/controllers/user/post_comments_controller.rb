@@ -6,8 +6,12 @@ class User::PostCommentsController < ApplicationController
   	post_comment = current_user.post_comments.new(post_comment_params)
   	post_comment.post_id = post.id
   	post_comment.save
-    post.create_notification_comment!(current_user,post_comment.id)
-  	redirect_to user_post_path(post.id)
+    if post_comment.user_id == post.user_id
+      redirect_to user_post_path(post.id)
+    else
+      post.create_notification_comment!(current_user,post_comment.id)
+      redirect_to user_post_path(post.id)
+    end
   end
 
   def edit

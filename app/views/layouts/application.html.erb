@@ -13,9 +13,15 @@
 
   <body>
     <header>
+      <% if user_signed_in? %>
         <div class="header_logo">
           <%= link_to "Exerb",destroy_user_session_path,method: :delete %>
         </div>
+      <% else %>
+        <div class="header_logo">
+          <%= link_to "Exerb",root_path %>
+        </div>
+      <% end %>
 
 
         <% if user_signed_in? %>

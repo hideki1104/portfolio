@@ -1,6 +1,10 @@
 $('#js-chat-container').append("<%= j(render 'message',{message:@message}) %>");
 $('#message_content').val('')
 
+"<% if @message.present? %>"
+	$('.not_message').hide();
+"<% end %>"
+
 // 送信後、ページの一番下にスクロールする記述
 var element = document.documentElement;
 var bottom = element.scrollHeight - element.clientHeight + 500;

@@ -1,5 +1,5 @@
-<% if messages.present? %>
-	<div id="js-chat-container"  class="chat_container">
+<div id="js-chat-container"  class="chat_container">
+    <% if messages.present? %>
 		<% messages.each do |message| %>
 			<%= render message, message: message %>
 		<% end %>

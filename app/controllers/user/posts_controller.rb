@@ -6,7 +6,6 @@ class User::PostsController < ApplicationController
   	@post.user_id = current_user.id
   	if @post.save
   	 redirect_to user_posts_path
-
     else
       @user = current_user
       @post = Post.new

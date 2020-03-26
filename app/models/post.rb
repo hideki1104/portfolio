@@ -41,6 +41,7 @@ class Post < ApplicationRecord
 
     def save_notification_comment!(current_user, comment_id, visited_id)
     	#コメントは複数回行うため、１つの投稿に対して複数回通知する
+        
     	notification = current_user.active_notifications.new(
     		post_id: id,
     		comment_id: comment_id,
