@@ -69,7 +69,7 @@ gem "refile-mini_magick"
 gem 'momentjs-rails'
 gem 'fullcalendar-rails'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 
 gem 'chart-js-rails', '~> 0.1.4'
