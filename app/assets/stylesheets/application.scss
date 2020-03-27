@@ -477,6 +477,16 @@ footer{
     color:#fff;
   }
 
+  .comment_content .fallback{
+    width:30px;
+    height:30px;
+  }
+
+  .comment_content .comment_table{
+    border-bottom: 1px solid #fff;
+    margin-bottom:20px;
+  }
+
 
 @media screen and (max-width:425px) {
 

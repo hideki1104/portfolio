@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @weight = current_user.weights.last
-    @posts = current_user.posts.paginate(page: params[:page],per_page: 3).order(created_at: :desc)
+    @posts = @user.posts.paginate(page: params[:page],per_page: 3).order(created_at: :desc)
     # DM機能
     @currentEntry = Entry.where(user_id: current_user.id)
     @userEntry = Entry.where(user: @user.id)

@@ -34,25 +34,29 @@
 			</table>
 
 			<!-- コメント機能 -->
-			<h3>コメント</h3>
-			<% @post.post_comments.each do |comment| %>
-				<table>
-					<tr>
-						<td><%= link_to user_path(comment.user.id) do %><%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %><% end %>
-							<%= time_ago_in_words(comment.created_at) %>前</td>
-					</tr>
-					<tr>
-						<td><%= comment.comment %></td>
-					</tr>
-					<% if comment.user == current_user %>
-					<tr>
-						<td><%= link_to edit_user_post_post_comment_path(@post.id,comment.id) do %><i class="fas fa-edit"></i><% end %>
-						<%= link_to user_post_post_comment_path(@post.id,comment.id),method: :delete do %><i class="fas fa-trash-alt"></i><% end %></td>
-		            </tr>
-		            <% else %>
-		            <% end %>
-				</table>
-			<% end %>
+			<div class="comment_content">
+				<h2>コメント</h2>
+						<% @post.post_comments.each do |comment| %>
+						<div class="comment_table">
+							<table>
+								<tr>
+									<td><%= link_to user_path(comment.user.id) do %><%= attachment_image_tag comment.user, :profile_image, :fill, 30, 30, format: 'jpeg',fallback: "no_image.jpg",class:"profile_image" %><% end %>
+										(<%= time_ago_in_words(comment.created_at) %>前)</td>
+								</tr>
+								<tr>
+									<td><%= comment.comment %></td>
+								</tr>
+								<% if comment.user == current_user %>
+								<tr>
+									<td><%= link_to edit_user_post_post_comment_path(@post.id,comment.id) do %><i class="fas fa-edit"></i><% end %>
+									<%= link_to user_post_post_comment_path(@post.id,comment.id),method: :delete do %><i class="fas fa-trash-alt"></i><% end %></td>
+					            </tr>
+					            <% else %>
+					            <% end %>
+						    </table>
+					    </div>
+					 <% end %>
+			</div>
 
 
 			<%= form_for([@post,@post_comment],url:user_post_post_comments_path(@post.id)) do |f| %>
