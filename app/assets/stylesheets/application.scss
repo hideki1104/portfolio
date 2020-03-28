@@ -138,7 +138,7 @@ header a{
 }
 
 .image1 {
-background-image: url(<%= asset_path "portfolio_top1.jpeg" %>);
+background-image: image-url("portfolio_top1.jpeg");
 background-attachment: fixed;
 width:100%;
 height:700px;
@@ -148,7 +148,7 @@ padding-top:80px;
 }
 
 .image2{
-background-image: url(<%= asset_path "top_image2.jpeg" %>);
+background-image: image-url("portfolio_top2.jpeg");
 background-attachment: fixed;
 width:100%;
 height:700px;
@@ -213,7 +213,7 @@ position:relative;
 //-------------------アバウト------------------------//
 
 #about_image{
-  background-image:url(<%= asset_path "about_image1.webp" %>);
+  background-image:image-url("about_image1.web");
   background-attachment: fixed;
   width:100%;
   height:700px;
@@ -232,7 +232,7 @@ position:relative;
 //-------------------メイン------------------------//
 
 main{
-  background-image:url(<%= asset_path "portfolio_top3.jpeg" %>);
+  background-image:image-url("portfolio_top3.jpeg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
