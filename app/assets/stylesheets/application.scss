@@ -497,7 +497,7 @@ footer{
 @media screen and (max-width:425px) {
 
   .image1 {
-    background-image: url(<%= asset_path "portfolio_top4.jpeg" %>);
+    background-image: image-url("portfolio_top4.jpeg");
     width:100%;
     height:700px;
     background-size:cover;
