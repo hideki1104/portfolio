@@ -51,6 +51,7 @@ class User::WeightsController < ApplicationController
         end
   end
 
+#サインアップした際の体重登録
   def create_user
     unless Weight.where(user_id: current_user.id).exists?
 
